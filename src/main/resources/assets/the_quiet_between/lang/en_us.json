@@ -1,0 +1,18 @@
+{
+  "entity.the_quiet_between.shadow_stalker": "Shadow Stalker",
+  "gui.the_quiet_between.question_1.button_yes": "yes",
+  "gui.the_quiet_between.question_1.label_can_you_see_this": "can you see this?",
+  "gui.the_quiet_between.question_2.input": "",
+  "gui.the_quiet_between.question_2.label_why_are_you_here": "why are you here?",
+  "gui.the_quiet_between.question_3.button_no": "no",
+  "gui.the_quiet_between.question_3.label_are_you_alone": "are you alone?",
+  "gui.the_quiet_between.question_3.button_yes": "yes",
+  "gui.the_quiet_between.leave_gui.button_leave": "leave",
+  "gui.the_quiet_between.leave_gui.label_leave1": "leave",
+  "gui.the_quiet_between.leave_gui.label_leave": "leave",
+  "gui.the_quiet_between.question_2.button_enter": "enter",
+  "item.the_quiet_between.teleporter_spawn": "Teleporter Spawn",
+  "biome.the_quiet_between.flat_bedrock_biome": "Flat Biome",
+  "advancements.i_see_you.descr": "\u003cO\u003e",
+  "advancements.i_see_you.title": "I See You"
+}

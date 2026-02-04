@@ -1,0 +1,43 @@
+{
+  "display": {
+    "icon": {
+      "id": "the_quiet_between:teleporter_spawn"
+    },
+    "title": {
+      "translate": "advancements.i_see_you.title"
+    },
+    "description": {
+      "translate": "advancements.i_see_you.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "i_see_you_1": {
+      "trigger": "minecraft:enchanted_item",
+      "conditions": {
+        "item": {
+          "items": "the_quiet_between:teleporter_spawn",
+          "predicates": {
+            "enchantments": [
+              {
+                "vanishing_curse": {
+                  "levels": {
+                    "min": 1,
+                    "max": 5
+                  }
+                }
+              }
+            ]
+          }
+        },
+        "levels": {
+          "min": -1
+        }
+      }
+    }
+  },
+  "parent": "minecraft:adventure/adventuring_time"
+}

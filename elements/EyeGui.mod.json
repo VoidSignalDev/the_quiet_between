@@ -1,0 +1,342 @@
+{
+  "_fv": 79,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 155,
+          "y": 57,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 203,
+          "y": 57,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 111,
+          "y": 70,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 119,
+          "y": 31,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 144,
+          "y": 100,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 99,
+          "y": 114,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 140,
+          "y": 144,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 180,
+          "y": 121,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 192,
+          "y": 88,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 310,
+          "y": 75,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 210,
+          "y": 18,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 208,
+          "y": -7,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 160,
+          "y": 16,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 30,
+          "y": 79,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 79,
+          "y": 31,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 71,
+          "y": 77,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 57,
+          "y": 118,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 92,
+          "y": 156,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 46,
+          "y": 161,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 182,
+          "y": 161,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 141,
+          "y": 185,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 224,
+          "y": 131,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 237,
+          "y": 86,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 247,
+          "y": 41,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 300,
+          "y": 142,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 256,
+          "y": 0,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 279,
+          "y": 69,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 292,
+          "y": 39,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 271,
+          "y": 110,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 264,
+          "y": 151,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 227,
+          "y": 168,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "eye.png",
+          "use1Xscale": false,
+          "x": 261,
+          "y": 172,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

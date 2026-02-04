@@ -1,0 +1,13 @@
+{
+  "parent": "block/cube",
+  "textures": {
+    "down": "the_quiet_between:block/single_black",
+    "up": "the_quiet_between:block/single_black",
+    "north": "the_quiet_between:block/single_black",
+    "east": "the_quiet_between:block/single_black",
+    "south": "the_quiet_between:block/single_black",
+    "west": "the_quiet_between:block/single_black",
+    "particle": "the_quiet_between:block/single_black"
+  },
+  "render_type": "solid"
+}

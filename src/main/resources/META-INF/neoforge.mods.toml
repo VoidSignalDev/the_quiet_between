@@ -1,0 +1,40 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="All Rights Reserved"
+
+[[mods]]
+modId="the_quiet_between"
+version="0.0.1"
+displayName="The Quiet Between"
+displayURL="https://mcreator.net"
+logoFile="logo.png"
+credits="Created By Single Dev: WildoJK"
+authors="WildoJK"
+description="Something wants you gone.. I want you gone."
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+
+# Start of user code block custom mixins
+# End of user code block custom mixins
+
+[[dependencies.the_quiet_between]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.4.155,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.the_quiet_between]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.4]"
+    ordering="AFTER"
+    side="BOTH"
+
+
+
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

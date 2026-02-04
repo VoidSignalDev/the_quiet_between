@@ -1,0 +1,70 @@
+{
+  "_fv": 79,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 176,
+    "height": 166,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": true,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "button",
+        "data": {
+          "name": "button_leave",
+          "text": "leave",
+          "isUndecorated": true,
+          "onClick": {
+            "name": "CloseGui"
+          },
+          "width": 51,
+          "height": 20,
+          "x": 226,
+          "y": 75,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_leave",
+          "text": {
+            "fixedValue": "leave"
+          },
+          "color": {
+            "value": -16777216,
+            "falpha": 0.0
+          },
+          "x": 154,
+          "y": 151,
+          "locked": false
+        }
+      },
+      {
+        "type": "label",
+        "data": {
+          "name": "label_leave1",
+          "text": {
+            "fixedValue": "leave"
+          },
+          "color": {
+            "value": -13434880,
+            "falpha": 0.0
+          },
+          "x": 244,
+          "y": 128,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

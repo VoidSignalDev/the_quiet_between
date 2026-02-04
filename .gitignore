@@ -1,0 +1,27 @@
+# Ignore build output
+/build/
+/out/
+
+# Ignore Gradle caches
+.gradle/
+/gradle/
+
+# Ignore runtime / temporary folders
+/run/
+logs/
+crash-reports/
+cache/
+
+# Ignore IDE/project metadata
+.idea/
+*.iml
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Ignore MCreator generated files that are not needed
+temp/
+workspace/.eclipse/
+.eclipse/
