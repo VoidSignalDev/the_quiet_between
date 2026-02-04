@@ -32,7 +32,7 @@ This project is currently under active development and is considered an early-st
 The project can be built using Gradle after opening it in MCreator or a compatible Java environment.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the GPLv3 License.
 
 ## Authorship
 This project is developed and maintained by a single contributor.
