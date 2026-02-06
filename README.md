@@ -34,6 +34,15 @@ The project can be built using Gradle after opening it in MCreator or a compatib
 ## Forks & Modifications
 This project is licensed under the GPLv3 License. For More Information, Press [here](LICENSE)
 
+You are **encouraged** to fork this mod, experiment with it, and improve it — whether that’s fixing bugs, adding features, or adapting it for your own ideas. Open collaboration is the goal.
+
+Please note:
+- Modified versions are **not endorsed** by the original author unless explicitly stated.
+- If you redistribute a modified version, clearly indicate that it has been changed.
+- Credit to the original author must be preserved, as required by the GPLv3 license.
+
+If you make something cool, feel free to open a pull request or share your fork — I’d love to see what you build.
+
 ## Safety Notice
 
 For your safety, download official releases only from the links provided in this repository.
