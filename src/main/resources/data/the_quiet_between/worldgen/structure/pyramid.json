@@ -9,12 +9,12 @@
   "start_height": {
     "type": "minecraft:very_biased_to_bottom",
     "min_inclusive": {
-      "absolute": 125
+      "absolute": 70
     },
     "max_inclusive": {
-      "absolute": 126
+      "absolute": 71
     }
   },
-  "biomes": "the_quiet_between:flat_bedrock_biome",
+  "biomes": "the_quiet_between:flat_grass_biome",
   "use_expansion_hack": false
 }

@@ -4,34 +4,34 @@
   "definition": {
     "biomesInDimension": [
       {
-        "value": "CUSTOM:FlatBedrockBiome"
+        "value": "CUSTOM:WhiteVoidBiome"
       }
     ],
     "worldGenType": "Normal world gen",
     "mainFillerBlock": {
-      "value": "Blocks.BEDROCK"
+      "value": "Blocks.GRASS"
     },
     "fluidBlock": {
-      "value": "Blocks.AIR"
+      "value": "Blocks.GRASS"
     },
-    "seaLevel": 0,
+    "seaLevel": 63,
     "generateOreVeins": false,
     "generateAquifers": false,
     "horizontalNoiseSize": 1,
-    "verticalNoiseSize": 1,
+    "verticalNoiseSize": 2,
     "defaultEffects": "overworld",
     "useCustomEffects": true,
     "hasClouds": false,
     "cloudHeight": 192,
-    "skyType": "END",
+    "skyType": "NONE",
     "sunHeightAffectsFog": false,
     "canRespawnHere": false,
-    "hasFog": true,
+    "hasFog": false,
     "ambientLight": 0.0,
     "doesWaterVaporize": false,
     "hasFixedTime": false,
     "fixedTimeValue": 0,
-    "coordinateScale": 50.0,
+    "coordinateScale": 1.0,
     "infiniburnTag": "minecraft:infiniburn_overworld",
     "bedWorks": false,
     "hasSkyLight": false,
@@ -41,9 +41,6 @@
     "minMonsterSpawnLightLimit": 0,
     "maxMonsterSpawnLightLimit": 7,
     "monsterSpawnBlockLightLimit": 0,
-    "onPlayerEntersDimension": {
-      "name": "TeleportHighAndResistance"
-    },
     "portalFrame": {
       "value": ""
     },
@@ -55,7 +52,7 @@
       "value": "block.portal.ambient"
     },
     "enableIgniter": true,
-    "igniterName": "Grass Flat Portal Igniter",
+    "igniterName": "White Void Portal Igniter",
     "igniterRarity": "COMMON",
     "specialInformation": {
       "fixedValue": []

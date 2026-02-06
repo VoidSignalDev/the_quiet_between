@@ -31,10 +31,13 @@ This project is currently under active development and is considered an early-st
 ## Build / Run
 The project can be built using Gradle after opening it in MCreator or a compatible Java environment.
 
-## License
-This project is licensed under the GPLv3 License.
+## Forks & Modifications
+This project is licensed under the GPLv3 License. For More Information, Press [here](LICENSE)
 
-For More Information, Press [here](LICENSE)
+## Safety Notice
+
+For your safety, download official releases only from the links provided in this repository.
+Forks and modified versions should be reviewed carefully before use.
 
 ## Authorship
 This project is developed and maintained by a single contributor.

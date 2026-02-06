@@ -15,6 +15,8 @@ description="Something wants you gone.. I want you gone."
 # Start of user code block mod configuration
 # End of user code block mod configuration
 
+[[mixins]]
+    config = "the_quiet_between.mixins.json"
 
 # Start of user code block custom mixins
 # End of user code block custom mixins

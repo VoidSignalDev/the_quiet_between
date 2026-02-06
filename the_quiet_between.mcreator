@@ -520,34 +520,6 @@
       }
     },
     {
-      "name": "FlatBedrock",
-      "type": "dimension",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "flat_bedrock",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/the_quiet_between/dimension/flat_bedrock.json",
-          "src/main/java/net/mcreator/thequietbetween/world/dimension/FlatBedrockDimension.java",
-          "src/main/resources/data/the_quiet_between/dimension_type/flat_bedrock.json"
-        ]
-      }
-    },
-    {
-      "name": "FlatBedrockBiome",
-      "type": "biome",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "flat_bedrock_biome",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/the_quiet_between/worldgen/placed_feature/flat_bedrock_biome_tree.json",
-          "src/main/resources/data/the_quiet_between/worldgen/configured_feature/flat_bedrock_biome_tree.json",
-          "src/main/resources/data/the_quiet_between/worldgen/biome/flat_bedrock_biome.json"
-        ]
-      }
-    },
-    {
       "name": "TeleportHighAndResistance",
       "type": "procedure",
       "compiles": true,
@@ -590,6 +562,231 @@
       "metadata": {
         "files": [
           "src/main/resources/data/the_quiet_between/advancement/i_see_you.json"
+        ]
+      }
+    },
+    {
+      "name": "FlatGrassBiome",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "flat_grass_biome",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/biome/flat_grass_biome.json"
+        ]
+      }
+    },
+    {
+      "name": "TreesFlatGrass",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "trees_flat_grass",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/structure_set/trees_flat_grass.json",
+          "src/main/resources/data/the_quiet_between/worldgen/template_pool/trees_flat_grass.json",
+          "src/main/resources/data/the_quiet_between/worldgen/structure/trees_flat_grass.json"
+        ]
+      }
+    },
+    {
+      "name": "Resistance",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "resistance",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/ResistanceProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "FlatGrass",
+      "type": "dimension",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "flat_grass",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/world/dimension/FlatGrassDimension.java",
+          "src/main/resources/data/the_quiet_between/dimension/flat_grass.json",
+          "src/main/resources/data/the_quiet_between/dimension_type/flat_grass.json"
+        ]
+      }
+    },
+    {
+      "name": "TheHallwaysBiome",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "the_hallways_biome",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/biome/the_hallways_biome.json"
+        ]
+      }
+    },
+    {
+      "name": "TheHallways",
+      "type": "dimension",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "the_hallways",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/dimension_type/the_hallways.json",
+          "src/main/resources/data/the_quiet_between/dimension/the_hallways.json",
+          "src/main/java/net/mcreator/thequietbetween/world/dimension/TheHallwaysDimension.java"
+        ]
+      }
+    },
+    {
+      "name": "Hallway",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hallway",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/structure_set/hallway.json",
+          "src/main/resources/data/the_quiet_between/worldgen/structure/hallway.json",
+          "src/main/resources/data/the_quiet_between/worldgen/template_pool/hallway.json"
+        ]
+      }
+    },
+    {
+      "name": "Hallwayexit",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "hallwayexit",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/structure_set/hallwayexit.json",
+          "src/main/resources/data/the_quiet_between/worldgen/structure/hallwayexit.json",
+          "src/main/resources/data/the_quiet_between/worldgen/template_pool/hallwayexit.json"
+        ]
+      }
+    },
+    {
+      "name": "TeleporterWhiteVoid",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleporter_white_void",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_quiet_between/models/item/teleporter_white_void.json",
+          "src/main/resources/assets/the_quiet_between/models/block/teleporter_white_void.json",
+          "src/main/resources/data/the_quiet_between/loot_table/blocks/teleporter_white_void.json",
+          "src/main/resources/assets/the_quiet_between/blockstates/teleporter_white_void.json",
+          "src/main/java/net/mcreator/thequietbetween/block/TeleporterWhiteVoidBlock.java",
+          "src/main/resources/assets/the_quiet_between/items/teleporter_white_void.json"
+        ]
+      }
+    },
+    {
+      "name": "TeleporterHallways",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleporter_hallways",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_quiet_between/models/item/teleporter_hallways.json",
+          "src/main/resources/assets/the_quiet_between/models/block/teleporter_hallways.json",
+          "src/main/resources/assets/the_quiet_between/items/teleporter_hallways.json",
+          "src/main/resources/assets/the_quiet_between/blockstates/teleporter_hallways.json",
+          "src/main/resources/data/the_quiet_between/loot_table/blocks/teleporter_hallways.json",
+          "src/main/java/net/mcreator/thequietbetween/block/TeleporterHallwaysBlock.java"
+        ]
+      }
+    },
+    {
+      "name": "TeleportToHallways",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleport_to_hallways",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/TeleportToHallwaysProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "TeleportToWhiteVoid",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleport_to_white_void",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/TeleportToWhiteVoidProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "WhiteVoidBiome",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "white_void_biome",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/biome/white_void_biome.json"
+        ]
+      }
+    },
+    {
+      "name": "WhiteVoid",
+      "type": "dimension",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "white_void",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/world/dimension/WhiteVoidDimension.java",
+          "src/main/resources/data/the_quiet_between/dimension/white_void.json",
+          "src/main/resources/data/the_quiet_between/dimension_type/white_void.json"
+        ]
+      }
+    },
+    {
+      "name": "V0id",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "v_0id",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_quiet_between/models/block/v_0id.json",
+          "src/main/resources/assets/the_quiet_between/blockstates/v_0id.json",
+          "src/main/java/net/mcreator/thequietbetween/block/V0idBlock.java",
+          "src/main/resources/data/the_quiet_between/loot_table/blocks/v_0id.json",
+          "src/main/resources/assets/the_quiet_between/items/v_0id.json",
+          "src/main/resources/assets/the_quiet_between/models/item/v_0id.json"
         ]
       }
     }
@@ -788,12 +985,10 @@
   ],
   "tag_elements": {
     "BLOCKS:minecraft:overworld_carver_replaceables": [
-      "~Blocks.BEDROCK",
+      "~Blocks.STONE#0",
+      "~Blocks.DIRT#0",
       "~Blocks.GRASS",
       "~Blocks.AIR"
-    ],
-    "BIOMES:minecraft:has_structure/nether_fossil": [
-      "~CUSTOM:FlatBedrockBiome"
     ]
   },
   "tab_element_order": {},
@@ -812,14 +1007,21 @@
       "gui.the_quiet_between.leave_gui.label_leave": "leave",
       "gui.the_quiet_between.question_2.button_enter": "enter",
       "item.the_quiet_between.teleporter_spawn": "Teleporter Spawn",
-      "biome.the_quiet_between.flat_bedrock_biome": "Flat Biome",
       "advancements.i_see_you.descr": "\u003cO\u003e",
       "advancements.i_see_you.title": "I See You",
-      "subtitles.door_knock": "open up.."
+      "subtitles.door_knock": "open up..",
+      "biome.the_quiet_between.flat_grass_biome": "Flat Grass Biome",
+      "biome.the_quiet_between.the_hallways_biome": "The Hallways Biome",
+      "item.the_quiet_between.teleporter_white_void": "Teleporter White Void",
+      "item.the_quiet_between.teleporter_hallways": "Teleporter Hallways",
+      "biome.the_quiet_between.white_void_biome": "White Void Biome",
+      "item.the_quiet_between.v_0id": "V 0id"
     }
   },
   "metadata": {
     "files": [
+      "src/main/java/net/mcreator/thequietbetween/mixin/NoiseGeneratorSettingsMixin.java",
+      "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModBiomes.java",
       "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModMenus.java",
       "src/main/java/net/mcreator/thequietbetween/network/MenuStateUpdateMessage.java",
       "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModScreens.java",
@@ -827,9 +1029,11 @@
       "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModItems.java",
       "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModEntities.java",
       "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModEntityRenderers.java",
+      "src/main/resources/the_quiet_between.mixins.json",
       "src/main/resources/META-INF/neoforge.mods.toml",
       "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModSounds.java",
       "src/main/java/net/mcreator/thequietbetween/network/TheQuietBetweenModVariables.java",
+      "src/main/resources/META-INF/accesstransformer.cfg",
       "src/main/resources/pack.mcmeta",
       "src/main/resources/assets/the_quiet_between/sounds.json",
       "src/main/java/net/mcreator/thequietbetween/TheQuietBetweenMod.java"

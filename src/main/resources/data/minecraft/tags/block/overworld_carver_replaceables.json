@@ -2,7 +2,8 @@
   "replace": false,
   "values": [
     "minecraft:grass_block",
-    "minecraft:air",
-    "minecraft:bedrock"
+    "minecraft:dirt",
+    "minecraft:stone",
+    "minecraft:air"
   ]
 }

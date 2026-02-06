@@ -114,7 +114,7 @@ public class SleepJumpscareProcedure {
 			} else if (randomizer == 3) {
 				TheQuietBetweenMod.queueServerWork(40, () -> {
 					if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
-						ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:flat_bedrock"));
+						ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:flat_grass"));
 						if (_player.level().dimension() == destinationType)
 							return;
 						ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);

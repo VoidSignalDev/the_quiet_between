@@ -1,0 +1,12 @@
+{
+  "type": "the_quiet_between:white_void",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "layers": [
+        { "block": "the_quiet_between:v_0id", "height": 1 }
+      ],
+      "biome": "the_quiet_between:white_void_biome"
+    }
+  }
+}

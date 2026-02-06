@@ -9,11 +9,11 @@
         "value": "Blocks.STRUCTURE_BLOCK"
       }
     ],
-    "spacing": 20,
-    "separation": 15,
+    "spacing": 44,
+    "separation": 28,
     "restrictionBiomes": [
       {
-        "value": "CUSTOM:FlatBedrockBiome"
+        "value": "CUSTOM:FlatGrassBiome"
       }
     ],
     "terrainAdaptation": "none",
@@ -21,8 +21,8 @@
     "surfaceDetectionType": "WORLD_SURFACE_WG",
     "useStartHeight": true,
     "startHeightProviderType": "VERY_BIASED_TO_BOTTOM",
-    "startHeightMin": 125,
-    "startHeightMax": 126,
+    "startHeightMin": 70,
+    "startHeightMax": 71,
     "size": 1,
     "maxDistanceFromCenter": 64,
     "jigsawPools": []

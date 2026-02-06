@@ -18,8 +18,14 @@ import java.util.function.Function;
 public class TheQuietBetweenModItems {
 	public static final DeferredRegister.Items REGISTRY = DeferredRegister.createItems(TheQuietBetweenMod.MODID);
 	public static final DeferredItem<Item> TELEPORTER_SPAWN;
+	public static final DeferredItem<Item> TELEPORTER_WHITE_VOID;
+	public static final DeferredItem<Item> TELEPORTER_HALLWAYS;
+	public static final DeferredItem<Item> V_0ID;
 	static {
 		TELEPORTER_SPAWN = block(TheQuietBetweenModBlocks.TELEPORTER_SPAWN);
+		TELEPORTER_WHITE_VOID = block(TheQuietBetweenModBlocks.TELEPORTER_WHITE_VOID);
+		TELEPORTER_HALLWAYS = block(TheQuietBetweenModBlocks.TELEPORTER_HALLWAYS);
+		V_0ID = block(TheQuietBetweenModBlocks.V_0ID);
 	}
 
 	// Start of user code block custom items

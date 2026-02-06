@@ -511,7 +511,7 @@ public class ConversationsProcedure {
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
 			} else if ((text).strip().contains("5")) {
 				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
-					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:flat_bedrock"));
+					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:flat_grass"));
 					if (_player.level().dimension() == destinationType)
 						return;
 					ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
@@ -528,11 +528,33 @@ public class ConversationsProcedure {
 				TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS = true;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 			} else if ((text).strip().contains("6")) {
-				if (world instanceof Level _level) {
-					if (!_level.isClientSide()) {
-						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:door_knock")), SoundSource.NEUTRAL, 1, 1);
-					} else {
-						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:door_knock")), SoundSource.NEUTRAL, 1, 1, false);
+				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
+					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:the_hallways"));
+					if (_player.level().dimension() == destinationType)
+						return;
+					ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
+					if (nextLevel != null) {
+						_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+						_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
+						_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
+						for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+							_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
+						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+					}
+				}
+			} else if ((text).strip().contains("7")) {
+				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
+					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:white_void"));
+					if (_player.level().dimension() == destinationType)
+						return;
+					ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
+					if (nextLevel != null) {
+						_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+						_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
+						_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
+						for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+							_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
+						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
 					}
 				}
 			}

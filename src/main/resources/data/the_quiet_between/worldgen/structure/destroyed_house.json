@@ -10,6 +10,6 @@
     "absolute": 0
   },
   "project_start_to_heightmap": "WORLD_SURFACE_WG",
-  "biomes": "the_quiet_between:flat_bedrock_biome",
+  "biomes": "the_quiet_between:flat_grass_biome",
   "use_expansion_hack": false
 }

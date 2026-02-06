@@ -9,11 +9,11 @@
         "value": "Blocks.STRUCTURE_BLOCK"
       }
     ],
-    "spacing": 15,
-    "separation": 12,
+    "spacing": 30,
+    "separation": 20,
     "restrictionBiomes": [
       {
-        "value": "CUSTOM:FlatBedrockBiome"
+        "value": "CUSTOM:FlatGrassBiome"
       }
     ],
     "terrainAdaptation": "beard_thin",

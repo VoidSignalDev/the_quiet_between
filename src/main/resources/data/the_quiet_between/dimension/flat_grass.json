@@ -1,0 +1,14 @@
+{
+  "type": "the_quiet_between:flat_grass",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "layers": [
+        { "block": "minecraft:bedrock", "height": 1 },
+        { "block": "minecraft:grass_block", "height": 1 },
+        { "block": "minecraft:grass_block", "height": 1 }
+      ],
+      "biome": "the_quiet_between:flat_grass_biome"
+    }
+  }
+}
