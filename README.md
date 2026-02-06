@@ -34,5 +34,7 @@ The project can be built using Gradle after opening it in MCreator or a compatib
 ## License
 This project is licensed under the GPLv3 License.
 
+For More Information, Press [here](LICENSE)
+
 ## Authorship
 This project is developed and maintained by a single contributor.
