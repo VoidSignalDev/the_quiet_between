@@ -9,11 +9,14 @@ import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
+import net.minecraft.advancements.AdvancementProgress;
+import net.minecraft.advancements.AdvancementHolder;
 
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
 import net.mcreator.thequietbetween.TheQuietBetweenMod;
@@ -54,6 +57,16 @@ public class JoineventProcedure {
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
 				TheQuietBetweenModVariables.MapVariables.get(world).conversationsOpen = 1;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+					AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:i_see_you"));
+					if (_adv != null) {
+						AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+						if (!_ap.isDone()) {
+							for (String criteria : _ap.getRemainingCriteria())
+								_player.getAdvancements().award(_adv, criteria);
+						}
+					}
+				}
 			}
 		});
 	}

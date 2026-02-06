@@ -5,14 +5,11 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.bus.api.Event;
 
-import net.minecraft.world.level.block.state.properties.Property;
-import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.util.RandomSource;
@@ -32,7 +29,6 @@ import net.minecraft.core.Direction;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
-import net.mcreator.thequietbetween.init.TheQuietBetweenModEntities;
 import net.mcreator.thequietbetween.TheQuietBetweenMod;
 
 import javax.annotation.Nullable;
@@ -60,31 +56,13 @@ public class SleepJumpscareProcedure {
 		double Z = 0;
 		BlockState isDoor = Blocks.AIR.defaultBlockState();
 		if (!(world instanceof Level _lvl0 && _lvl0.isDay())) {
-			randomizer = Mth.nextInt(RandomSource.create(), 1, 34);
+			randomizer = Mth.nextInt(RandomSource.create(), 1, 38);
 			if (randomizer == 1) {
-				bedDirection = getBlockDirection(world, BlockPos.containing(x, y, z));
-				if (bedDirection == Direction.NORTH) {
-					Z = TheQuietBetweenModVariables.MapVariables.get(world).playerZ + 2;
-				} else if (bedDirection == Direction.SOUTH) {
-					Z = TheQuietBetweenModVariables.MapVariables.get(world).playerZ - 2;
-				} else if (bedDirection == Direction.EAST) {
-					X = TheQuietBetweenModVariables.MapVariables.get(world).playerX - 2;
-				} else {
-					X = TheQuietBetweenModVariables.MapVariables.get(world).playerX + 2;
-				}
-				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 5;
-				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
-				if (world instanceof ServerLevel _level) {
-					Entity entityToSpawn = TheQuietBetweenModEntities.SHADOW_STALKER.get().spawn(_level, BlockPos.containing(X, y, Z), EntitySpawnReason.MOB_SUMMONED);
-					if (entityToSpawn != null) {
-						entityToSpawn.setDeltaMovement(0, 0, 0);
-					}
-				}
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, BlockPos.containing(X, y, Z), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1, (float) 0.1);
+						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:door_knock")), SoundSource.MASTER, 1, 1);
 					} else {
-						_level.playLocalSound(X, y, Z, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1, (float) 0.1, false);
+						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:door_knock")), SoundSource.MASTER, 1, 1, false);
 					}
 				}
 			} else if (randomizer == 2) {
@@ -152,17 +130,5 @@ public class SleepJumpscareProcedure {
 				});
 			}
 		}
-	}
-
-	private static Direction getBlockDirection(LevelAccessor world, BlockPos pos) {
-		BlockState blockState = world.getBlockState(pos);
-		Property<?> property = blockState.getBlock().getStateDefinition().getProperty("facing");
-		if (property != null && blockState.getValue(property) instanceof Direction direction)
-			return direction;
-		else if (blockState.hasProperty(BlockStateProperties.AXIS))
-			return Direction.fromAxisAndDirection(blockState.getValue(BlockStateProperties.AXIS), Direction.AxisDirection.POSITIVE);
-		else if (blockState.hasProperty(BlockStateProperties.HORIZONTAL_AXIS))
-			return Direction.fromAxisAndDirection(blockState.getValue(BlockStateProperties.HORIZONTAL_AXIS), Direction.AxisDirection.POSITIVE);
-		return Direction.NORTH;
 	}
 }

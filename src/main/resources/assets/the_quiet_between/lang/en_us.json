@@ -14,5 +14,6 @@
   "item.the_quiet_between.teleporter_spawn": "Teleporter Spawn",
   "biome.the_quiet_between.flat_bedrock_biome": "Flat Biome",
   "advancements.i_see_you.descr": "\u003cO\u003e",
-  "advancements.i_see_you.title": "I See You"
+  "advancements.i_see_you.title": "I See You",
+  "subtitles.door_knock": "open up.."
 }

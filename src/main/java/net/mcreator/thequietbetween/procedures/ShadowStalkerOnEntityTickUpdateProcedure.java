@@ -21,8 +21,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.commands.arguments.EntityAnchorArgument;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.CommandSource;
-import net.minecraft.advancements.AdvancementProgress;
-import net.minecraft.advancements.AdvancementHolder;
 import net.minecraft.ChatFormatting;
 
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
@@ -64,19 +62,6 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 					TheQuietBetweenModVariables.MapVariables.get(world).trigger = true;
 					TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				}
-				if (!(PlayerEntityProcedure.execute(world) instanceof ServerPlayer _plr15 && _plr15.level() instanceof ServerLevel _serverLevel15
-						&& _plr15.getAdvancements().getOrStartProgress(_serverLevel15.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:i_see_you"))).isDone())) {
-					if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
-						AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:i_see_you"));
-						if (_adv != null) {
-							AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-							if (!_ap.isDone()) {
-								for (String criteria : _ap.getRemainingCriteria())
-									_player.getAdvancements().award(_adv, criteria);
-							}
-						}
-					}
-				}
 				if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerShy == 1) {
 					if (dot > 0.9 && distancePlayerAndEntity <= 20) {
 						if (!entity.level().isClientSide())
@@ -116,9 +101,6 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 							_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 1));
 						if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
 							_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 2));
-						if (world instanceof ServerLevel _level) {
-							_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<> Leave"), false);
-						}
 						if (!entity.level().isClientSide())
 							entity.discard();
 						TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 0;
@@ -158,9 +140,6 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 							if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
 								_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 1, 3));
 							playerNear.push(1, 1, 1);
-							if (world instanceof ServerLevel _level) {
-								_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal("<> LEAVE").withColor(0xff0000), false);
-							}
 							if (!entity.level().isClientSide())
 								entity.discard();
 							TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 0;
@@ -278,22 +257,23 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 						_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 40, 2));
 					if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
 						_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 50, 3));
-					TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 0;
-					TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 					if (!entity.level().isClientSide())
 						entity.discard();
+					TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 0;
 					TheQuietBetweenModVariables.MapVariables.get(world).pauseChat = false;
 					TheQuietBetweenModVariables.MapVariables.get(world).timerReset = true;
 					TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 					if (world instanceof ServerLevel _level)
-						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-								"/setblock ~ ~ ~ oak_sign[facing=south]{front_text:{messages:['{\"text\":\"\"}','{\"text\":\"running is futile\"}','{\"text\":\"\"}','{\"text\":\"\"}']}}");
+						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, (y + 1), z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"/setblock ~ ~ ~ oak_sign{front_text:{messages:['{\"text\":\"\"}','{\"text\":\"running is\"}','{\"text\":\"futile\"}','{\"text\":\"\"}']}} replace");
 					if (world instanceof ServerLevel _level)
-						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3((x + 1), y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-								"/setblock ~ ~ ~ oak_sign[facing=south]{front_text:{messages:['{\"text\":\"\"}','{\"text\":\"why are you here\"}','{\"text\":\"\"}','{\"text\":\"\"}']}}");
+						_level.getServer().getCommands().performPrefixedCommand(
+								new CommandSourceStack(CommandSource.NULL, new Vec3((x + Math.round(Math.random())), y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"/setblock ~ ~ ~ oak_sign[rotation=1]{front_text:{messages:['{\"text\":\"\"}','{\"text\":\"why are you here\"}','{\"text\":\"\"}','{\"text\":\"\"}']}} replace");
 					if (world instanceof ServerLevel _level)
-						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3((x + -1), y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
-								"/setblock ~ ~ ~ oak_sign[facing=south]{front_text:{messages:['{\"text\":\"\"}','{\"text\":\"leave\"}','{\"text\":\"\"}','{\"text\":\"\"}']}}");
+						_level.getServer().getCommands().performPrefixedCommand(
+								new CommandSourceStack(CommandSource.NULL, new Vec3((x - Math.round(Math.random())), y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
+								"/setblock ~ ~ ~ oak_sign[rotation=14]{front_text:{messages:['{\"text\":\"\"}','{\"text\":\"leave\"}','{\"text\":\"\"}','{\"text\":\"\"}']}} replace");
 					if (finalPlayerNear instanceof ServerPlayer sp1) {
 						if (world instanceof ServerLevel _level) {
 							_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal("Player.Caught").withColor(0xff0000).withStyle(ChatFormatting.BOLD), false);
@@ -362,7 +342,7 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 						_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(),
 								"/tellraw @a [{\"text\":\"fdfghhrhs\",\"obfuscated\":true,\"color\":\"red\"}]");
 				}
-				if (!(playerNear instanceof LivingEntity _livEnt107 && _livEnt107.isSleeping())) {
+				if (!(playerNear instanceof LivingEntity _livEnt103 && _livEnt103.isSleeping())) {
 					if (!entity.level().isClientSide())
 						entity.discard();
 					TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 0;

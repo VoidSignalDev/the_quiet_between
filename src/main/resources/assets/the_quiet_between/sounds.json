@@ -1,0 +1,11 @@
+{
+  "door_knock": {
+    "subtitle": "subtitles.door_knock",
+    "sounds": [
+      {
+        "name": "the_quiet_between:door_knock",
+        "stream": false
+      }
+    ]
+  }
+}

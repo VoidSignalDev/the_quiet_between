@@ -3,9 +3,13 @@ package net.mcreator.thequietbetween.procedures;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.level.levelgen.Heightmap;
 import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.EntitySpawnReason;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
@@ -71,6 +75,15 @@ public class ShadowstalkerspawnProcedure {
 			Entity entityToSpawn = TheQuietBetweenModEntities.SHADOW_STALKER.get().spawn(_level, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), EntitySpawnReason.MOB_SUMMONED);
 			if (entityToSpawn != null) {
 				entityToSpawn.setDeltaMovement(0, 0, 0);
+			}
+		}
+		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 2) {
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 255, 1);
+				} else {
+					_level.playLocalSound(X_Cord, Y_Cord, Z_Cord, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 255, 1, false);
+				}
 			}
 		}
 	}

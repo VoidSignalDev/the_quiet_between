@@ -1,27 +1,53 @@
-# Ignore build output
+# =========================
+# Build output
+# =========================
 /build/
 /out/
 
-# Ignore Gradle caches
+# =========================
+# Gradle caches and wrappers
+# =========================
 .gradle/
 /gradle/
 
-# Ignore runtime / temporary folders
+# =========================
+# Runtime / temporary folders
+# =========================
 /run/
 logs/
 crash-reports/
 cache/
+*.log
+*.log.gz
 
-# Ignore IDE/project metadata
+# =========================
+# IDE / editor metadata
+# =========================
 .idea/
 *.iml
 .vscode/
+/*.ipr
+/*.iws
 
+# Eclipse specific
+/.eclipse/
+/.workspace/
+.settings/
+
+# =========================
 # OS files
+# =========================
 .DS_Store
 Thumbs.db
 
-# Ignore MCreator generated files that are not needed
+# =========================
+# MCreator temporary / unnecessary files
+# =========================
 temp/
-workspace/.eclipse/
-.eclipse/
+.mcreator
+
+# =========================
+# Others
+# =========================
+*.tmp
+*.bak

@@ -19,6 +19,7 @@ import net.minecraft.network.codec.StreamCodec;
 import net.minecraft.network.FriendlyByteBuf;
 
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
+import net.mcreator.thequietbetween.init.TheQuietBetweenModSounds;
 import net.mcreator.thequietbetween.init.TheQuietBetweenModMenus;
 import net.mcreator.thequietbetween.init.TheQuietBetweenModItems;
 import net.mcreator.thequietbetween.init.TheQuietBetweenModEntities;
@@ -41,6 +42,7 @@ public class TheQuietBetweenMod {
 		// End of user code block mod constructor
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
+		TheQuietBetweenModSounds.REGISTRY.register(modEventBus);
 		TheQuietBetweenModBlocks.REGISTRY.register(modEventBus);
 		TheQuietBetweenModItems.REGISTRY.register(modEventBus);
 		TheQuietBetweenModEntities.REGISTRY.register(modEventBus);

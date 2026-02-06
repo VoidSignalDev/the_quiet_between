@@ -605,7 +605,7 @@
       "name": "joinEvent",
       "type": "number",
       "scope": "map",
-      "value": "0"
+      "value": "0.0"
     },
     {
       "name": "conversationsOpen",
@@ -776,7 +776,16 @@
       "value": "0"
     }
   ],
-  "sound_elements": [],
+  "sound_elements": [
+    {
+      "name": "door_knock",
+      "files": [
+        "door_knock"
+      ],
+      "category": "master",
+      "subtitle": "open up.."
+    }
+  ],
   "tag_elements": {
     "BLOCKS:minecraft:overworld_carver_replaceables": [
       "~Blocks.BEDROCK",
@@ -805,7 +814,8 @@
       "item.the_quiet_between.teleporter_spawn": "Teleporter Spawn",
       "biome.the_quiet_between.flat_bedrock_biome": "Flat Biome",
       "advancements.i_see_you.descr": "\u003cO\u003e",
-      "advancements.i_see_you.title": "I See You"
+      "advancements.i_see_you.title": "I See You",
+      "subtitles.door_knock": "open up.."
     }
   },
   "metadata": {
@@ -818,8 +828,10 @@
       "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModEntities.java",
       "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModEntityRenderers.java",
       "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/java/net/mcreator/thequietbetween/init/TheQuietBetweenModSounds.java",
       "src/main/java/net/mcreator/thequietbetween/network/TheQuietBetweenModVariables.java",
       "src/main/resources/pack.mcmeta",
+      "src/main/resources/assets/the_quiet_between/sounds.json",
       "src/main/java/net/mcreator/thequietbetween/TheQuietBetweenMod.java"
     ]
   },

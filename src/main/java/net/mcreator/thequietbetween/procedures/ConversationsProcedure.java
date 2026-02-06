@@ -527,6 +527,14 @@ public class ConversationsProcedure {
 			} else if ((text).strip().contains("fss")) {
 				TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS = true;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+			} else if ((text).strip().contains("6")) {
+				if (world instanceof Level _level) {
+					if (!_level.isClientSide()) {
+						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:door_knock")), SoundSource.NEUTRAL, 1, 1);
+					} else {
+						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:door_knock")), SoundSource.NEUTRAL, 1, 1, false);
+					}
+				}
 			}
 		}
 		if ((text).strip().contains("dev")) {

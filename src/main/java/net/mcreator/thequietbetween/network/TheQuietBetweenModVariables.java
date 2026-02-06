@@ -112,7 +112,7 @@ public class TheQuietBetweenModVariables {
 		public static final String DATA_NAME = "the_quiet_between_mapvars";
 		boolean _syncDirty = false;
 		public double ShadowStalkerBehavior = 0;
-		public double joinEvent = 0;
+		public double joinEvent = 0.0;
 		public double conversationsOpen = 0;
 		public double hello = 0;
 		public double timer = 0.0;
