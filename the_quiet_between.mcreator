@@ -554,18 +554,6 @@
       }
     },
     {
-      "name": "ISeeYou",
-      "type": "achievement",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "i_see_you",
-      "metadata": {
-        "files": [
-          "src/main/resources/data/the_quiet_between/advancement/i_see_you.json"
-        ]
-      }
-    },
-    {
       "name": "FlatGrassBiome",
       "type": "biome",
       "compiles": true,
@@ -789,6 +777,136 @@
           "src/main/resources/assets/the_quiet_between/models/item/v_0id.json"
         ]
       }
+    },
+    {
+      "name": "TvStatic",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "tv_static",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/world/inventory/TvStaticMenu.java",
+          "src/main/java/net/mcreator/thequietbetween/client/gui/TvStaticScreen.java"
+        ]
+      }
+    },
+    {
+      "name": "ShadowStalkerFlying",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shadow_stalker_flying",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/entity/ShadowStalkerFlyingEntity.java",
+          "src/main/java/net/mcreator/thequietbetween/client/renderer/ShadowStalkerFlyingRenderer.java"
+        ]
+      }
+    },
+    {
+      "name": "ShadowStalkerScriptedBehavior",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shadow_stalker_scripted_behavior",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/ShadowStalkerScriptedBehaviorProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "ShadowStalkerTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shadow_stalker_tick_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/ShadowStalkerTickUpdateProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "HowDidYouGetHere",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "how_did_you_get_here",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/advancement/how_did_you_get_here.json"
+        ]
+      }
+    },
+    {
+      "name": "WhatAreYouDoingHere",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "what_are_you_doing_here",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/advancement/what_are_you_doing_here.json"
+        ]
+      }
+    },
+    {
+      "name": "WhoAreYou",
+      "type": "achievement",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "who_are_you",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/advancement/who_are_you.json"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -971,6 +1089,18 @@
       "type": "number",
       "scope": "map",
       "value": "0"
+    },
+    {
+      "name": "time",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "shadowStalkerScripted",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -981,6 +1111,14 @@
       ],
       "category": "master",
       "subtitle": "open up.."
+    },
+    {
+      "name": "tv_static",
+      "files": [
+        "tv_static"
+      ],
+      "category": "master",
+      "subtitle": "world stutters"
     }
   ],
   "tag_elements": {
@@ -1007,15 +1145,21 @@
       "gui.the_quiet_between.leave_gui.label_leave": "leave",
       "gui.the_quiet_between.question_2.button_enter": "enter",
       "item.the_quiet_between.teleporter_spawn": "Teleporter Spawn",
-      "advancements.i_see_you.descr": "\u003cO\u003e",
-      "advancements.i_see_you.title": "I See You",
       "subtitles.door_knock": "open up..",
       "biome.the_quiet_between.flat_grass_biome": "Flat Grass Biome",
       "biome.the_quiet_between.the_hallways_biome": "The Hallways Biome",
       "item.the_quiet_between.teleporter_white_void": "Teleporter White Void",
       "item.the_quiet_between.teleporter_hallways": "Teleporter Hallways",
       "biome.the_quiet_between.white_void_biome": "White Void Biome",
-      "item.the_quiet_between.v_0id": "V 0id"
+      "item.the_quiet_between.v_0id": "V 0id",
+      "subtitles.tv_static": "world stutters",
+      "entity.the_quiet_between.shadow_stalker_flying": "Shadow Stalker",
+      "advancements.how_did_you_get_here.descr": "???????",
+      "advancements.how_did_you_get_here.title": "How Did You Get Here?",
+      "advancements.what_are_you_doing_here.descr": "???????",
+      "advancements.what_are_you_doing_here.title": "What Are You Doing Here?",
+      "advancements.who_are_you.descr": "???????",
+      "advancements.who_are_you.title": "Who Are You?"
     }
   },
   "metadata": {

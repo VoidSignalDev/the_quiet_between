@@ -37,7 +37,7 @@ public class JoineventProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		TheQuietBetweenMod.queueServerWork(2400, () -> {
+		TheQuietBetweenMod.queueServerWork(1, () -> {
 			if (TheQuietBetweenModVariables.MapVariables.get(world).joinEvent == 0) {
 				TheQuietBetweenModVariables.MapVariables.get(world).joinEvent = 1;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
@@ -57,16 +57,74 @@ public class JoineventProcedure {
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
 				TheQuietBetweenModVariables.MapVariables.get(world).conversationsOpen = 1;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
-				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
-					AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:i_see_you"));
-					if (_adv != null) {
-						AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-						if (!_ap.isDone()) {
-							for (String criteria : _ap.getRemainingCriteria())
-								_player.getAdvancements().award(_adv, criteria);
+				TheQuietBetweenMod.queueServerWork(80, () -> {
+					if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+						AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:who_are_you"));
+						if (_adv != null) {
+							AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+							if (!_ap.isDone()) {
+								for (String criteria : _ap.getRemainingCriteria())
+									_player.getAdvancements().award(_adv, criteria);
+							}
 						}
 					}
-				}
+					TheQuietBetweenMod.queueServerWork(5, () -> {
+						if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+							AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:how_did_you_get_here"));
+							if (_adv != null) {
+								AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+								if (!_ap.isDone()) {
+									for (String criteria : _ap.getRemainingCriteria())
+										_player.getAdvancements().award(_adv, criteria);
+								}
+							}
+						}
+						TheQuietBetweenMod.queueServerWork(5, () -> {
+							if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+								AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:what_are_you_doing_here"));
+								if (_adv != null) {
+									AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+									if (!_ap.isDone()) {
+										for (String criteria : _ap.getRemainingCriteria())
+											_player.getAdvancements().award(_adv, criteria);
+									}
+								}
+							}
+							TheQuietBetweenMod.queueServerWork(20, () -> {
+								if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+									AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:who_are_you"));
+									if (_adv != null) {
+										AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+										if (_ap.isDone()) {
+											for (String criteria : _ap.getCompletedCriteria())
+												_player.getAdvancements().revoke(_adv, criteria);
+										}
+									}
+								}
+								if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+									AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:what_are_you_doing_here"));
+									if (_adv != null) {
+										AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+										if (_ap.isDone()) {
+											for (String criteria : _ap.getCompletedCriteria())
+												_player.getAdvancements().revoke(_adv, criteria);
+										}
+									}
+								}
+								if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+									AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:how_did_you_get_here"));
+									if (_adv != null) {
+										AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+										if (_ap.isDone()) {
+											for (String criteria : _ap.getCompletedCriteria())
+												_player.getAdvancements().revoke(_adv, criteria);
+										}
+									}
+								}
+							});
+						});
+					});
+				});
 			}
 		});
 	}

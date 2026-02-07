@@ -15,11 +15,7 @@ import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.client.Minecraft;
 
-import net.mcreator.thequietbetween.world.inventory.Question3Menu;
-import net.mcreator.thequietbetween.world.inventory.Question2Menu;
-import net.mcreator.thequietbetween.world.inventory.Question1Menu;
-import net.mcreator.thequietbetween.world.inventory.LeaveGuiMenu;
-import net.mcreator.thequietbetween.world.inventory.EyeGuiMenu;
+import net.mcreator.thequietbetween.world.inventory.*;
 import net.mcreator.thequietbetween.network.MenuStateUpdateMessage;
 import net.mcreator.thequietbetween.TheQuietBetweenMod;
 
@@ -32,6 +28,7 @@ public class TheQuietBetweenModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<Question3Menu>> QUESTION_3 = REGISTRY.register("question_3", () -> IMenuTypeExtension.create(Question3Menu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<LeaveGuiMenu>> LEAVE_GUI = REGISTRY.register("leave_gui", () -> IMenuTypeExtension.create(LeaveGuiMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<EyeGuiMenu>> EYE_GUI = REGISTRY.register("eye_gui", () -> IMenuTypeExtension.create(EyeGuiMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<TvStaticMenu>> TV_STATIC = REGISTRY.register("tv_static", () -> IMenuTypeExtension.create(TvStaticMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();

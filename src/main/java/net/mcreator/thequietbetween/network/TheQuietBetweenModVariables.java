@@ -141,6 +141,8 @@ public class TheQuietBetweenModVariables {
 		public double doorY = 0;
 		public double doorZ = 0;
 		public double guiQuestionsCounter = 0;
+		public double time = 0;
+		public double shadowStalkerScripted = 0;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -179,6 +181,8 @@ public class TheQuietBetweenModVariables {
 			doorY = nbt.getDouble("doorY");
 			doorZ = nbt.getDouble("doorZ");
 			guiQuestionsCounter = nbt.getDouble("guiQuestionsCounter");
+			time = nbt.getDouble("time");
+			shadowStalkerScripted = nbt.getDouble("shadowStalkerScripted");
 		}
 
 		@Override
@@ -213,6 +217,8 @@ public class TheQuietBetweenModVariables {
 			nbt.putDouble("doorY", doorY);
 			nbt.putDouble("doorZ", doorZ);
 			nbt.putDouble("guiQuestionsCounter", guiQuestionsCounter);
+			nbt.putDouble("time", time);
+			nbt.putDouble("shadowStalkerScripted", shadowStalkerScripted);
 			return nbt;
 		}
 

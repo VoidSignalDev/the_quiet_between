@@ -33,14 +33,17 @@ public class ShadowstalkerspawnProcedure {
 		double lookY = 0;
 		double lookZ = 0;
 		double offsetZ = 0;
-		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 1 || TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 3) {
+		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 1 || TheQuietBetweenModVariables.MapVariables.get(world).shadowStalkerScripted == 2) {
 			TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn = 2;
 			TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
-		} else if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 2 || TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 6) {
+		} else if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 2) {
 			TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn = 0;
 			TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
-		} else if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 4) {
+		} else if (TheQuietBetweenModVariables.MapVariables.get(world).shadowStalkerScripted == 1) {
 			TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn = 1;
+			TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+		} else if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 3) {
+			TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn = 3;
 			TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 		}
 		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 0 || TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 1) {
@@ -64,25 +67,37 @@ public class ShadowstalkerspawnProcedure {
 				Z_Cord = z + lookVec.z() * distance;
 				Y_Cord = y;
 			}
-		} else if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 2) {
+		} else if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 2 || TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 3) {
 			distance = Math.random() * 10 + 20;
 			angle = Math.random() * 3.14 * 2;
 			X_Cord = x + distance * Math.cos(angle);
 			Z_Cord = z + distance * Math.sin(angle);
 			Y_Cord = world.getHeight(Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, (int) X_Cord, (int) Z_Cord);
-		}
-		if (world instanceof ServerLevel _level) {
-			Entity entityToSpawn = TheQuietBetweenModEntities.SHADOW_STALKER.get().spawn(_level, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), EntitySpawnReason.MOB_SUMMONED);
-			if (entityToSpawn != null) {
-				entityToSpawn.setDeltaMovement(0, 0, 0);
+			if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 3) {
+				Y_Cord = 100;
 			}
 		}
-		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 2) {
+		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 3) {
+			if (world instanceof ServerLevel _level) {
+				Entity entityToSpawn = TheQuietBetweenModEntities.SHADOW_STALKER_FLYING.get().spawn(_level, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), EntitySpawnReason.MOB_SUMMONED);
+				if (entityToSpawn != null) {
+					entityToSpawn.setDeltaMovement(0, 0, 0);
+				}
+			}
+		} else {
+			if (world instanceof ServerLevel _level) {
+				Entity entityToSpawn = TheQuietBetweenModEntities.SHADOW_STALKER.get().spawn(_level, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), EntitySpawnReason.MOB_SUMMONED);
+				if (entityToSpawn != null) {
+					entityToSpawn.setDeltaMovement(0, 0, 0);
+				}
+			}
+		}
+		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 2 || TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 3) {
 			if (world instanceof Level _level) {
 				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 255, 1);
+					_level.playSound(null, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1024, 1);
 				} else {
-					_level.playLocalSound(X_Cord, Y_Cord, Z_Cord, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 255, 1, false);
+					_level.playLocalSound(X_Cord, Y_Cord, Z_Cord, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1024, 1, false);
 				}
 			}
 		}

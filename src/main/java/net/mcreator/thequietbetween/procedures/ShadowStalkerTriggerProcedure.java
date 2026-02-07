@@ -39,7 +39,7 @@ public class ShadowStalkerTriggerProcedure {
 					TheQuietBetweenModVariables.MapVariables.get(world).playerZ, 512) == null && (randomizer == 1 || TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS == true)
 					&& TheQuietBetweenModVariables.MapVariables.get(world).playerY >= 63) {
 				TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS = false;
-				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = Mth.nextInt(RandomSource.create(), 1, 2);
+				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = Mth.nextInt(RandomSource.create(), 1, 3);
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior == 1) {
 					TheQuietBetweenModVariables.MapVariables.get(world).sprintOrGone = Mth.nextInt(RandomSource.create(), 0, 1);

@@ -7,5 +7,14 @@
         "stream": false
       }
     ]
+  },
+  "tv_static": {
+    "subtitle": "subtitles.tv_static",
+    "sounds": [
+      {
+        "name": "the_quiet_between:tv_static",
+        "stream": false
+      }
+    ]
   }
 }

@@ -9,11 +9,13 @@ import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
 import net.mcreator.thequietbetween.client.renderer.ShadowStalkerRenderer;
+import net.mcreator.thequietbetween.client.renderer.ShadowStalkerFlyingRenderer;
 
 @EventBusSubscriber(Dist.CLIENT)
 public class TheQuietBetweenModEntityRenderers {
 	@SubscribeEvent
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(TheQuietBetweenModEntities.SHADOW_STALKER.get(), ShadowStalkerRenderer::new);
+		event.registerEntityRenderer(TheQuietBetweenModEntities.SHADOW_STALKER_FLYING.get(), ShadowStalkerFlyingRenderer::new);
 	}
 }

@@ -82,7 +82,7 @@
     "pushedByFluids": {
       "fixedValue": false
     },
-    "flyingMob": false,
+    "flyingMob": true,
     "inventorySize": 9,
     "inventoryStackSize": 99,
     "disableCollisions": false,
@@ -122,7 +122,7 @@
     },
     "entityDataEntries": [],
     "onMobTickUpdate": {
-      "name": "ShadowStalkerTickUpdate"
+      "name": "ShadowStalkerOnEntityTickUpdate"
     },
     "hasAI": true,
     "aiBase": "(none)",

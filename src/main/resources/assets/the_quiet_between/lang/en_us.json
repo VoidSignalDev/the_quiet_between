@@ -12,13 +12,19 @@
   "gui.the_quiet_between.leave_gui.label_leave": "leave",
   "gui.the_quiet_between.question_2.button_enter": "enter",
   "item.the_quiet_between.teleporter_spawn": "Teleporter Spawn",
-  "advancements.i_see_you.descr": "\u003cO\u003e",
-  "advancements.i_see_you.title": "I See You",
   "subtitles.door_knock": "open up..",
   "biome.the_quiet_between.flat_grass_biome": "Flat Grass Biome",
   "biome.the_quiet_between.the_hallways_biome": "The Hallways Biome",
   "item.the_quiet_between.teleporter_white_void": "Teleporter White Void",
   "item.the_quiet_between.teleporter_hallways": "Teleporter Hallways",
   "biome.the_quiet_between.white_void_biome": "White Void Biome",
-  "item.the_quiet_between.v_0id": "V 0id"
+  "item.the_quiet_between.v_0id": "V 0id",
+  "subtitles.tv_static": "world stutters",
+  "entity.the_quiet_between.shadow_stalker_flying": "Shadow Stalker",
+  "advancements.how_did_you_get_here.descr": "???????",
+  "advancements.how_did_you_get_here.title": "How Did You Get Here?",
+  "advancements.what_are_you_doing_here.descr": "???????",
+  "advancements.what_are_you_doing_here.title": "What Are You Doing Here?",
+  "advancements.who_are_you.descr": "???????",
+  "advancements.who_are_you.title": "Who Are You?"
 }

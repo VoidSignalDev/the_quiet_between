@@ -492,24 +492,58 @@ public class ConversationsProcedure {
 			}
 		}
 		if (TheQuietBetweenModVariables.MapVariables.get(world).developerMod) {
-			if ((text).strip().contains("1")) {
+			if ((text).strip().contains("r1")) {
 				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 1;
 				TheQuietBetweenModVariables.MapVariables.get(world).sprintOrGone = Mth.nextInt(RandomSource.create(), 0, 1);
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
-			} else if ((text).strip().contains("2")) {
+			} else if ((text).strip().contains("r2")) {
 				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 2;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
-			} else if ((text).strip().contains("3")) {
+			} else if ((text).strip().contains("r3")) {
 				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 3;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
-			} else if ((text).strip().contains("4")) {
-				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 4;
+			} else if ((text).strip().contains("s1")) {
+				TheQuietBetweenModVariables.MapVariables.get(world).shadowStalkerScripted = 1;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
-			} else if ((text).strip().contains("5")) {
+			} else if ((text).strip().contains("s2")) {
+				TheQuietBetweenModVariables.MapVariables.get(world).shadowStalkerScripted = 2;
+				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
+			} else if ((text).strip().contains("hall")) {
+				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
+					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:the_hallways"));
+					if (_player.level().dimension() == destinationType)
+						return;
+					ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
+					if (nextLevel != null) {
+						_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+						_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
+						_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
+						for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+							_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
+						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+					}
+				}
+			} else if ((text).strip().contains("void")) {
+				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
+					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:white_void"));
+					if (_player.level().dimension() == destinationType)
+						return;
+					ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
+					if (nextLevel != null) {
+						_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
+						_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
+						_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
+						for (MobEffectInstance _effectinstance : _player.getActiveEffects())
+							_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
+						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
+					}
+				}
+			} else if ((text).strip().contains("flat")) {
 				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
 					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:flat_grass"));
 					if (_player.level().dimension() == destinationType)
@@ -527,36 +561,6 @@ public class ConversationsProcedure {
 			} else if ((text).strip().contains("fss")) {
 				TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS = true;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
-			} else if ((text).strip().contains("6")) {
-				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
-					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:the_hallways"));
-					if (_player.level().dimension() == destinationType)
-						return;
-					ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
-					if (nextLevel != null) {
-						_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-						_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
-						_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-						for (MobEffectInstance _effectinstance : _player.getActiveEffects())
-							_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
-						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
-					}
-				}
-			} else if ((text).strip().contains("7")) {
-				if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _serverLevel) {
-					ResourceKey<Level> destinationType = ResourceKey.create(Registries.DIMENSION, ResourceLocation.parse("the_quiet_between:white_void"));
-					if (_player.level().dimension() == destinationType)
-						return;
-					ServerLevel nextLevel = _serverLevel.getServer().getLevel(destinationType);
-					if (nextLevel != null) {
-						_player.connection.send(new ClientboundGameEventPacket(ClientboundGameEventPacket.WIN_GAME, 0));
-						_player.teleportTo(nextLevel, _player.getX(), _player.getY(), _player.getZ(), Set.of(), _player.getYRot(), _player.getXRot(), true);
-						_player.connection.send(new ClientboundPlayerAbilitiesPacket(_player.getAbilities()));
-						for (MobEffectInstance _effectinstance : _player.getActiveEffects())
-							_player.connection.send(new ClientboundUpdateMobEffectPacket(_player.getId(), _effectinstance, false));
-						_player.connection.send(new ClientboundLevelEventPacket(1032, BlockPos.ZERO, 0, false));
-					}
-				}
 			}
 		}
 		if ((text).strip().contains("dev")) {

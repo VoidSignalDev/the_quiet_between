@@ -1,0 +1,30 @@
+{
+  "display": {
+    "icon": {
+      "id": "the_quiet_between:teleporter_hallways"
+    },
+    "title": {
+      "translate": "advancements.how_did_you_get_here.title"
+    },
+    "description": {
+      "translate": "advancements.how_did_you_get_here.descr"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "how_did_you_get_here_0": {
+      "trigger": "minecraft:consume_item",
+      "conditions": {
+        "item": {
+          "items": [
+            "the_quiet_between:v_0id"
+          ]
+        }
+      }
+    }
+  },
+  "parent": "minecraft:adventure/adventuring_time"
+}
