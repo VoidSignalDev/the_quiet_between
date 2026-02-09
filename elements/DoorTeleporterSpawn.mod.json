@@ -2,14 +2,14 @@
   "_fv": 79,
   "_type": "block",
   "definition": {
-    "texture": "minecraft:white_concrete",
-    "textureTop": "minecraft:white_concrete",
-    "textureLeft": "minecraft:white_concrete",
-    "textureFront": "minecraft:white_concrete",
-    "textureRight": "minecraft:white_concrete",
-    "textureBack": "minecraft:white_concrete",
-    "renderType": 10,
-    "customModelName": "Normal",
+    "texture": "minecraft:oak_door_bottom",
+    "textureTop": "minecraft:oak_door_top",
+    "textureLeft": "minecraft:oak_door_bottom",
+    "textureFront": "minecraft:oak_door_bottom",
+    "textureRight": "minecraft:oak_door_bottom",
+    "textureBack": "minecraft:oak_door_bottom",
+    "renderType": 11,
+    "customModelName": "Single texture",
     "rotationMode": 0,
     "enablePitch": false,
     "emissiveRendering": false,
@@ -17,6 +17,7 @@
     "animations": [],
     "itemTexture": "",
     "particleTexture": "",
+    "blockBase": "Door",
     "blockSetType": "OAK",
     "pottedPlant": {
       "value": ""
@@ -39,7 +40,7 @@
       }
     ],
     "customProperties": [],
-    "name": "V 0id",
+    "name": "Door Teleporter Spawn",
     "specialInformation": {
       "fixedValue": []
     },
@@ -93,7 +94,7 @@
     "isNotColidable": false,
     "isCustomSoundType": false,
     "soundOnStep": {
-      "value": "EMPTY"
+      "value": "WOOD"
     },
     "breakSound": {
       "value": ""
@@ -110,7 +111,7 @@
     "stepSound": {
       "value": ""
     },
-    "luminance": 15,
+    "luminance": 0,
     "unbreakable": true,
     "vanillaToolTier": "NONE",
     "isBonemealable": false,
@@ -135,6 +136,9 @@
     "isFluidTank": false,
     "fluidCapacity": 8000,
     "fluidRestrictions": [],
+    "onRightClicked": {
+      "name": "TeleportToSpawnpoint"
+    },
     "generateFeature": false,
     "restrictionBiomes": [],
     "blocksToReplace": [

@@ -1,14 +1,14 @@
 {
   "structures": [
     {
-      "structure": "the_quiet_between:pyramid",
+      "structure": "the_quiet_between:door_normal",
       "weight": 1
     }
   ],
   "placement": {
     "type": "minecraft:random_spread",
-    "spacing": 54,
-    "separation": 28,
-    "salt": 1680262593
+    "spacing": 1,
+    "separation": 0,
+    "salt": 209518934
   }
 }

@@ -970,6 +970,58 @@
           "src/main/java/net/mcreator/thequietbetween/procedures/DespawnShadowStalkersProcedure.java"
         ]
       }
+    },
+    {
+      "name": "DoorTeleporterSpawn",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "door_teleporter_spawn",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/block/DoorTeleporterSpawnBlock.java",
+          "src/main/resources/assets/the_quiet_between/models/block/door_teleporter_spawn_top_left.json",
+          "src/main/resources/assets/the_quiet_between/models/block/door_teleporter_spawn_bottom_left_open.json",
+          "src/main/resources/assets/the_quiet_between/items/door_teleporter_spawn.json",
+          "src/main/resources/assets/the_quiet_between/models/block/door_teleporter_spawn_bottom_left.json",
+          "src/main/resources/data/the_quiet_between/loot_table/blocks/door_teleporter_spawn.json",
+          "src/main/resources/assets/the_quiet_between/blockstates/door_teleporter_spawn.json",
+          "src/main/resources/assets/the_quiet_between/models/block/door_teleporter_spawn_top_right_open.json",
+          "src/main/resources/assets/the_quiet_between/models/item/door_teleporter_spawn.json",
+          "src/main/resources/assets/the_quiet_between/models/block/door_teleporter_spawn_top_left_open.json",
+          "src/main/resources/assets/the_quiet_between/models/block/door_teleporter_spawn_bottom_right.json",
+          "src/main/resources/assets/the_quiet_between/models/block/door_teleporter_spawn_top_right.json",
+          "src/main/resources/assets/the_quiet_between/models/block/door_teleporter_spawn_bottom_right_open.json"
+        ]
+      }
+    },
+    {
+      "name": "DoorNormal",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "door_normal",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/template_pool/door_normal.json",
+          "src/main/resources/data/the_quiet_between/worldgen/structure/door_normal.json",
+          "src/main/resources/data/the_quiet_between/worldgen/structure_set/door_normal.json"
+        ]
+      }
+    },
+    {
+      "name": "DoorSpawn",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "door_spawn",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/structure/door_spawn.json",
+          "src/main/resources/data/the_quiet_between/worldgen/template_pool/door_spawn.json",
+          "src/main/resources/data/the_quiet_between/worldgen/structure_set/door_spawn.json"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1210,6 +1262,9 @@
       "~Blocks.DIRT#0",
       "~Blocks.GRASS",
       "~Blocks.AIR"
+    ],
+    "BLOCKS:minecraft:wooden_doors": [
+      "~CUSTOM:DoorTeleporterSpawn"
     ]
   },
   "tab_element_order": {},
@@ -1243,7 +1298,8 @@
       "advancements.what_are_you_doing_here.title": "What Are You Doing Here?",
       "advancements.who_are_you.descr": "???????",
       "advancements.who_are_you.title": "Who Are You?",
-      "subtitles.intro_scare": ""
+      "subtitles.intro_scare": "",
+      "item.the_quiet_between.door_teleporter_spawn": "Door Teleporter Spawn"
     }
   },
   "metadata": {

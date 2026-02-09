@@ -13,6 +13,7 @@ import net.mcreator.thequietbetween.block.V0idBlock;
 import net.mcreator.thequietbetween.block.TeleporterWhiteVoidBlock;
 import net.mcreator.thequietbetween.block.TeleporterSpawnBlock;
 import net.mcreator.thequietbetween.block.TeleporterHallwaysBlock;
+import net.mcreator.thequietbetween.block.DoorTeleporterSpawnBlock;
 import net.mcreator.thequietbetween.TheQuietBetweenMod;
 
 import java.util.function.Function;
@@ -23,11 +24,13 @@ public class TheQuietBetweenModBlocks {
 	public static final DeferredBlock<Block> TELEPORTER_WHITE_VOID;
 	public static final DeferredBlock<Block> TELEPORTER_HALLWAYS;
 	public static final DeferredBlock<Block> V_0ID;
+	public static final DeferredBlock<Block> DOOR_TELEPORTER_SPAWN;
 	static {
 		TELEPORTER_SPAWN = register("teleporter_spawn", TeleporterSpawnBlock::new);
 		TELEPORTER_WHITE_VOID = register("teleporter_white_void", TeleporterWhiteVoidBlock::new);
 		TELEPORTER_HALLWAYS = register("teleporter_hallways", TeleporterHallwaysBlock::new);
 		V_0ID = register("v_0id", V0idBlock::new);
+		DOOR_TELEPORTER_SPAWN = register("door_teleporter_spawn", DoorTeleporterSpawnBlock::new);
 	}
 
 	// Start of user code block custom blocks

@@ -9,6 +9,7 @@ import net.neoforged.neoforge.registries.DeferredHolder;
 
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.DoubleHighBlockItem;
 import net.minecraft.world.item.BlockItem;
 
 import net.mcreator.thequietbetween.TheQuietBetweenMod;
@@ -21,11 +22,13 @@ public class TheQuietBetweenModItems {
 	public static final DeferredItem<Item> TELEPORTER_WHITE_VOID;
 	public static final DeferredItem<Item> TELEPORTER_HALLWAYS;
 	public static final DeferredItem<Item> V_0ID;
+	public static final DeferredItem<Item> DOOR_TELEPORTER_SPAWN;
 	static {
 		TELEPORTER_SPAWN = block(TheQuietBetweenModBlocks.TELEPORTER_SPAWN);
 		TELEPORTER_WHITE_VOID = block(TheQuietBetweenModBlocks.TELEPORTER_WHITE_VOID);
 		TELEPORTER_HALLWAYS = block(TheQuietBetweenModBlocks.TELEPORTER_HALLWAYS);
 		V_0ID = block(TheQuietBetweenModBlocks.V_0ID);
+		DOOR_TELEPORTER_SPAWN = doubleBlock(TheQuietBetweenModBlocks.DOOR_TELEPORTER_SPAWN);
 	}
 
 	// Start of user code block custom items
@@ -40,5 +43,13 @@ public class TheQuietBetweenModItems {
 
 	private static DeferredItem<Item> block(DeferredHolder<Block, Block> block, Item.Properties properties) {
 		return REGISTRY.registerItem(block.getId().getPath(), prop -> new BlockItem(block.get(), prop), properties);
+	}
+
+	private static DeferredItem<Item> doubleBlock(DeferredHolder<Block, Block> block) {
+		return doubleBlock(block, new Item.Properties());
+	}
+
+	private static DeferredItem<Item> doubleBlock(DeferredHolder<Block, Block> block, Item.Properties properties) {
+		return REGISTRY.registerItem(block.getId().getPath(), prop -> new DoubleHighBlockItem(block.get(), prop), properties);
 	}
 }

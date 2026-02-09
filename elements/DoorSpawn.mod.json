@@ -2,27 +2,27 @@
   "_fv": 79,
   "_type": "structure",
   "definition": {
-    "structure": "pyramid",
+    "structure": "spawn_door",
     "projection": "rigid",
     "ignoredBlocks": [
       {
         "value": "Blocks.STRUCTURE_BLOCK"
       }
     ],
-    "spacing": 54,
-    "separation": 28,
+    "spacing": 10,
+    "separation": 5,
     "restrictionBiomes": [
       {
-        "value": "CUSTOM:FlatGrassBiome"
+        "value": "CUSTOM:WhiteVoidBiome"
       }
     ],
     "terrainAdaptation": "none",
     "generationStep": "SURFACE_STRUCTURES",
     "surfaceDetectionType": "WORLD_SURFACE_WG",
-    "useStartHeight": true,
-    "startHeightProviderType": "VERY_BIASED_TO_BOTTOM",
-    "startHeightMin": 70,
-    "startHeightMax": 71,
+    "useStartHeight": false,
+    "startHeightProviderType": "UNIFORM",
+    "startHeightMin": 0,
+    "startHeightMax": 128,
     "size": 1,
     "maxDistanceFromCenter": 64,
     "jigsawPools": []

@@ -27,5 +27,6 @@
   "advancements.what_are_you_doing_here.title": "What Are You Doing Here?",
   "advancements.who_are_you.descr": "???????",
   "advancements.who_are_you.title": "Who Are You?",
-  "subtitles.intro_scare": ""
+  "subtitles.intro_scare": "",
+  "item.the_quiet_between.door_teleporter_spawn": "Door Teleporter Spawn"
 }
