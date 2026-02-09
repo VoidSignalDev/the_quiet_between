@@ -1,16 +1,16 @@
 modLoader="javafml"
 loaderVersion="[4,)"
-license="All Rights Reserved"
+license="GNU General Public License version 3 (GPLv3)"
 
 [[mods]]
 modId="the_quiet_between"
-version="0.0.1"
+version="0.0.2"
 displayName="The Quiet Between"
 displayURL="https://mcreator.net"
 logoFile="logo.png"
-credits="Created By Single Dev: WildoJK"
-authors="WildoJK"
-description="Something wants you gone.. I want you gone."
+credits="Created By Single Dev: VoidSignalDev"
+authors="VoidSignalDev"
+description="what are you doing here"
 
 # Start of user code block mod configuration
 # End of user code block mod configuration

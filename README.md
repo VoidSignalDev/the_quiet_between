@@ -4,6 +4,8 @@ The Quiet Between is a custom Minecraft mod developed in Java using MCreator.
 The project focuses on event-driven game logic, custom entities, and player interaction
 within an existing game engine API.
 
+Download the Official Mod From [Modirnth](https://modrinth.com/mod/the-quiet-between)
+
 ## Project Goals
 - Explore mod development using Java and Gradle
 - Work with an event-based system inside a large codebase

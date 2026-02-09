@@ -1330,10 +1330,11 @@
   "workspaceSettings": {
     "modid": "the_quiet_between",
     "modName": "The Quiet Between",
-    "version": "0.0.1",
-    "description": "Something wants you gone.. I want you gone.",
-    "author": "WildoJK",
-    "license": "All Rights Reserved",
+    "version": "0.0.2",
+    "description": "what are you doing here",
+    "author": "VoidSignalDev",
+    "websiteURL": "https://mcreator.net",
+    "license": "GNU General Public License version 3 (GPLv3)",
     "serverSideOnly": false,
     "modPicture": "cover",
     "requiredMods": [],
@@ -1341,7 +1342,7 @@
     "dependants": [],
     "mcreatorDependencies": [],
     "currentGenerator": "neoforge-1.21.4",
-    "credits": "Created By Single Dev: WildoJK",
+    "credits": "Created By Single Dev: VoidSignalDev",
     "modElementsPackage": "net.mcreator.thequietbetween"
   },
   "mcreatorVersion": 202500345720
