@@ -16,5 +16,13 @@
         "stream": false
       }
     ]
+  },
+  "intro_scare": {
+    "sounds": [
+      {
+        "name": "the_quiet_between:intro_scare",
+        "stream": false
+      }
+    ]
   }
 }

@@ -77,6 +77,24 @@ public class ShadowstalkerspawnProcedure {
 				Y_Cord = 100;
 			}
 		}
+		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 2 || TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 3) {
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1024, 1);
+				} else {
+					_level.playLocalSound(X_Cord, Y_Cord, Z_Cord, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1024, 1, false);
+				}
+			}
+		}
+		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 2 || TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 3) {
+			if (world instanceof Level _level) {
+				if (!_level.isClientSide()) {
+					_level.playSound(null, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1024, 1);
+				} else {
+					_level.playLocalSound(X_Cord, Y_Cord, Z_Cord, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1024, 1, false);
+				}
+			}
+		}
 		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 3) {
 			if (world instanceof ServerLevel _level) {
 				Entity entityToSpawn = TheQuietBetweenModEntities.SHADOW_STALKER_FLYING.get().spawn(_level, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), EntitySpawnReason.MOB_SUMMONED);
@@ -89,15 +107,6 @@ public class ShadowstalkerspawnProcedure {
 				Entity entityToSpawn = TheQuietBetweenModEntities.SHADOW_STALKER.get().spawn(_level, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), EntitySpawnReason.MOB_SUMMONED);
 				if (entityToSpawn != null) {
 					entityToSpawn.setDeltaMovement(0, 0, 0);
-				}
-			}
-		}
-		if (TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 2 || TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerSpawn == 3) {
-			if (world instanceof Level _level) {
-				if (!_level.isClientSide()) {
-					_level.playSound(null, BlockPos.containing(X_Cord, Y_Cord, Z_Cord), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1024, 1);
-				} else {
-					_level.playLocalSound(X_Cord, Y_Cord, Z_Cord, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1024, 1, false);
 				}
 			}
 		}

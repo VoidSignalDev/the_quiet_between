@@ -143,6 +143,8 @@ public class TheQuietBetweenModVariables {
 		public double guiQuestionsCounter = 0;
 		public double time = 0;
 		public double shadowStalkerScripted = 0;
+		public boolean forceGui = false;
+		public boolean despawnShadowStalkerTrigger = true;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -183,6 +185,8 @@ public class TheQuietBetweenModVariables {
 			guiQuestionsCounter = nbt.getDouble("guiQuestionsCounter");
 			time = nbt.getDouble("time");
 			shadowStalkerScripted = nbt.getDouble("shadowStalkerScripted");
+			forceGui = nbt.getBoolean("forceGui");
+			despawnShadowStalkerTrigger = nbt.getBoolean("despawnShadowStalkerTrigger");
 		}
 
 		@Override
@@ -219,6 +223,8 @@ public class TheQuietBetweenModVariables {
 			nbt.putDouble("guiQuestionsCounter", guiQuestionsCounter);
 			nbt.putDouble("time", time);
 			nbt.putDouble("shadowStalkerScripted", shadowStalkerScripted);
+			nbt.putBoolean("forceGui", forceGui);
+			nbt.putBoolean("despawnShadowStalkerTrigger", despawnShadowStalkerTrigger);
 			return nbt;
 		}
 

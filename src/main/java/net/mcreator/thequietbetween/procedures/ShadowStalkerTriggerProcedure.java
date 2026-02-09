@@ -14,7 +14,6 @@ import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
 
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
-import net.mcreator.thequietbetween.entity.ShadowStalkerEntity;
 
 import javax.annotation.Nullable;
 
@@ -35,8 +34,7 @@ public class ShadowStalkerTriggerProcedure {
 		double randomizer = 0;
 		if (TheQuietBetweenModVariables.MapVariables.get(world).joinEvent == 1) {
 			randomizer = Mth.nextInt(RandomSource.create(), 1, 8000);
-			if (findEntityInWorldRange(world, ShadowStalkerEntity.class, TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY,
-					TheQuietBetweenModVariables.MapVariables.get(world).playerZ, 512) == null && (randomizer == 1 || TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS == true)
+			if (ShadowStalkerEntityProcedure.execute(world) == null && ShadowStalkerFlyingEntityProcedure.execute(world) == null && (randomizer == 1 || TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS == true)
 					&& TheQuietBetweenModVariables.MapVariables.get(world).playerY >= 63) {
 				TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS = false;
 				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = Mth.nextInt(RandomSource.create(), 1, 3);

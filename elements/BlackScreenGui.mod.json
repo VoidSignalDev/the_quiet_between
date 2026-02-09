@@ -1,0 +1,62 @@
+{
+  "_fv": 79,
+  "_type": "gui",
+  "definition": {
+    "type": 0,
+    "width": 450,
+    "height": 250,
+    "inventoryOffsetX": 0,
+    "inventoryOffsetY": 0,
+    "renderBgLayer": false,
+    "doesPauseGame": false,
+    "components": [
+      {
+        "type": "image",
+        "data": {
+          "image": "black.png",
+          "use1Xscale": false,
+          "x": 182,
+          "y": 128,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "black.png",
+          "use1Xscale": false,
+          "x": -290,
+          "y": 130,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "black.png",
+          "use1Xscale": false,
+          "x": -285,
+          "y": -320,
+          "locked": false
+        }
+      },
+      {
+        "type": "image",
+        "data": {
+          "image": "black.png",
+          "use1Xscale": false,
+          "x": 195,
+          "y": -365,
+          "locked": false
+        }
+      }
+    ],
+    "gridSettings": {
+      "sx": 18,
+      "sy": 18,
+      "ox": 11,
+      "oy": 15,
+      "snapOnGrid": false
+    }
+  }
+}

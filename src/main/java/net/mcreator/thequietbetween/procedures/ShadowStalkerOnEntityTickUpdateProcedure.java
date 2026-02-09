@@ -12,6 +12,8 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.damagesource.DamageTypes;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.MenuProvider;
 import net.minecraft.util.RandomSource;
 import net.minecraft.util.Mth;
@@ -85,20 +87,44 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 				if ((new Vec3((entity.getX()), (entity.getY()), (entity.getZ())))
 						.distanceTo((new Vec3(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ))) <= 10) {
 					if (TheQuietBetweenModVariables.MapVariables.get(world).sprintOrGone == 1) {
+						if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _ent) {
+							BlockPos _bpos = BlockPos.containing(x, y, z);
+							_ent.openMenu(new MenuProvider() {
+								@Override
+								public Component getDisplayName() {
+									return Component.literal("TvStatic");
+								}
+
+								@Override
+								public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+									return false;
+								}
+
+								@Override
+								public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+									return new TvStaticMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+								}
+							}, _bpos);
+						}
 						if (world instanceof Level _level) {
 							if (!_level.isClientSide()) {
 								_level.playSound(null,
 										BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ),
-										BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, (float) 1.5, -5);
+										BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:tv_static")), SoundSource.MASTER, 1, 1);
 							} else {
 								_level.playLocalSound(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ,
-										BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, (float) 1.5, -5, false);
+										BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:tv_static")), SoundSource.MASTER, 1, 1, false);
 							}
 						}
-						if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
-							_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 1));
-						if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
-							_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 2));
+						TheQuietBetweenMod.queueServerWork(10, () -> {
+							if (world instanceof ServerLevel _level)
+								_level.getServer().getCommands()
+										.performPrefixedCommand(new CommandSourceStack(CommandSource.NULL,
+												new Vec3(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ),
+												Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(), "/stopsound @a master the_quiet_between:tv_static");
+							if (PlayerEntityProcedure.execute(world) instanceof Player _player)
+								_player.closeContainer();
+						});
 						if (!entity.level().isClientSide())
 							entity.discard();
 						TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 0;
@@ -131,11 +157,10 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 								}
 							}
 							if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
-								_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 1));
+								_entity.addEffect(new MobEffectInstance(MobEffects.BLINDNESS, 60, 1, false, false));
 							if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
-								_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 2));
-							if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
-								_entity.addEffect(new MobEffectInstance(MobEffects.WITHER, 1, 3));
+								_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 2, false, false));
+							entity.hurt(new DamageSource(world.holderOrThrow(DamageTypes.GENERIC)), 1);
 							playerNear.push(1, 1, 1);
 							if (!entity.level().isClientSide())
 								entity.discard();
@@ -170,7 +195,7 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 					if (!entity.level().isClientSide())
 						entity.discard();
 					if (playerNear instanceof LivingEntity _entity && !_entity.level().isClientSide())
-						_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 2));
+						_entity.addEffect(new MobEffectInstance(MobEffects.MOVEMENT_SLOWDOWN, 60, 2, false, false));
 					if (world instanceof Level _level) {
 						if (!_level.isClientSide()) {
 							_level.playSound(null,
@@ -236,7 +261,6 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 					if (!entity.level().isClientSide())
 						entity.discard();
 					TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 0;
-					TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 0;
 					TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				});
 			}
@@ -247,6 +271,11 @@ public class ShadowStalkerOnEntityTickUpdateProcedure {
 		} else {
 			TheQuietBetweenModVariables.MapVariables.get(world).timer = TheQuietBetweenModVariables.MapVariables.get(world).timer + 1;
 			TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+		}
+		if (TheQuietBetweenModVariables.MapVariables.get(world).despawnShadowStalkerTrigger == true) {
+			TheQuietBetweenModVariables.MapVariables.get(world).despawnShadowStalkerTrigger = false;
+			TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+			DespawnShadowStalkersProcedure.execute(world);
 		}
 	}
 }

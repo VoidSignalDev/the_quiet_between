@@ -1,10 +1,5 @@
 package net.mcreator.thequietbetween.procedures;
 
-import net.neoforged.neoforge.event.tick.LevelTickEvent;
-import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.bus.api.Event;
-
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.entity.player.Player;
@@ -25,25 +20,13 @@ import net.mcreator.thequietbetween.world.inventory.EyeGuiMenu;
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
 import net.mcreator.thequietbetween.TheQuietBetweenMod;
 
-import javax.annotation.Nullable;
-
 import io.netty.buffer.Unpooled;
 
-@EventBusSubscriber
 public class GuiProcedure {
-	@SubscribeEvent
-	public static void onWorldTick(LevelTickEvent.Post event) {
-		execute(event, event.getLevel());
-	}
-
 	public static void execute(LevelAccessor world) {
-		execute(null, world);
-	}
-
-	private static void execute(@Nullable Event event, LevelAccessor world) {
 		double randomizer = 0;
 		randomizer = Mth.nextInt(RandomSource.create(), 1, 75000);
-		if (randomizer == 1) {
+		if (randomizer == 1 || TheQuietBetweenModVariables.MapVariables.get(world).forceGui == true) {
 			if (TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter == 0) {
 				if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ);
@@ -150,6 +133,7 @@ public class GuiProcedure {
 				});
 			}
 			TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter = TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter + 1;
+			TheQuietBetweenModVariables.MapVariables.get(world).forceGui = false;
 			TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 		}
 	}

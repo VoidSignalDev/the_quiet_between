@@ -907,6 +907,69 @@
           "src/main/resources/data/the_quiet_between/advancement/who_are_you.json"
         ]
       }
+    },
+    {
+      "name": "IntroJumpscareGui",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "intro_jumpscare_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/client/gui/IntroJumpscareGuiScreen.java",
+          "src/main/java/net/mcreator/thequietbetween/world/inventory/IntroJumpscareGuiMenu.java"
+        ]
+      }
+    },
+    {
+      "name": "BlackScreenGui",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "black_screen_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/world/inventory/BlackScreenGuiMenu.java",
+          "src/main/java/net/mcreator/thequietbetween/client/gui/BlackScreenGuiScreen.java"
+        ]
+      }
+    },
+    {
+      "name": "ShadowStalkerFlyingEntity",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "shadow_stalker_flying_entity",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "entity",
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/ShadowStalkerFlyingEntityProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "DespawnShadowStalkers",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "despawn_shadow_stalkers",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/DespawnShadowStalkersProcedure.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1101,6 +1164,18 @@
       "type": "number",
       "scope": "map",
       "value": "0"
+    },
+    {
+      "name": "forceGui",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "despawnShadowStalkerTrigger",
+      "type": "logic",
+      "scope": "map",
+      "value": "true"
     }
   ],
   "sound_elements": [
@@ -1119,6 +1194,14 @@
       ],
       "category": "master",
       "subtitle": "world stutters"
+    },
+    {
+      "name": "intro_scare",
+      "files": [
+        "intro_scare"
+      ],
+      "category": "master",
+      "subtitle": ""
     }
   ],
   "tag_elements": {
@@ -1159,7 +1242,8 @@
       "advancements.what_are_you_doing_here.descr": "???????",
       "advancements.what_are_you_doing_here.title": "What Are You Doing Here?",
       "advancements.who_are_you.descr": "???????",
-      "advancements.who_are_you.title": "Who Are You?"
+      "advancements.who_are_you.title": "Who Are You?",
+      "subtitles.intro_scare": ""
     }
   },
   "metadata": {

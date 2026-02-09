@@ -7,21 +7,29 @@ import net.neoforged.bus.api.Event;
 
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.MenuProvider;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.BlockPos;
 import net.minecraft.advancements.AdvancementProgress;
 import net.minecraft.advancements.AdvancementHolder;
 
+import net.mcreator.thequietbetween.world.inventory.IntroJumpscareGuiMenu;
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
 import net.mcreator.thequietbetween.TheQuietBetweenMod;
 
 import javax.annotation.Nullable;
+
+import io.netty.buffer.Unpooled;
 
 @EventBusSubscriber
 public class JoineventProcedure {
@@ -37,51 +45,61 @@ public class JoineventProcedure {
 	private static void execute(@Nullable Event event, LevelAccessor world, double x, double y, double z, Entity entity) {
 		if (entity == null)
 			return;
-		TheQuietBetweenMod.queueServerWork(1, () -> {
+		TheQuietBetweenMod.queueServerWork(2400, () -> {
 			if (TheQuietBetweenModVariables.MapVariables.get(world).joinEvent == 0) {
-				TheQuietBetweenModVariables.MapVariables.get(world).joinEvent = 1;
-				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1, -1);
+						_level.playSound(null, BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ),
+								BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:intro_scare")), SoundSource.MASTER, 1, 1);
 					} else {
-						_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1, -1, false);
+						_level.playLocalSound(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ,
+								BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("the_quiet_between:intro_scare")), SoundSource.MASTER, 1, 1, false);
 					}
 				}
-				if (world instanceof ServerLevel _level) {
-					_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(" joined the game").withColor(0xffff00), false);
+				if (entity instanceof ServerPlayer _ent) {
+					BlockPos _bpos = BlockPos.containing(x, y, z);
+					_ent.openMenu(new MenuProvider() {
+						@Override
+						public Component getDisplayName() {
+							return Component.literal("IntroJumpscareGui");
+						}
+
+						@Override
+						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+							return false;
+						}
+
+						@Override
+						public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+							return new IntroJumpscareGuiMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						}
+					}, _bpos);
 				}
-				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 1;
-				TheQuietBetweenModVariables.MapVariables.get(world).sprintOrGone = 1;
-				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
-				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
-				TheQuietBetweenModVariables.MapVariables.get(world).conversationsOpen = 1;
-				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
-				TheQuietBetweenMod.queueServerWork(80, () -> {
-					if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
-						AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:who_are_you"));
-						if (_adv != null) {
-							AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-							if (!_ap.isDone()) {
-								for (String criteria : _ap.getRemainingCriteria())
-									_player.getAdvancements().award(_adv, criteria);
+				TheQuietBetweenMod.queueServerWork(10, () -> {
+					if (entity instanceof Player _player)
+						_player.closeContainer();
+					TheQuietBetweenMod.queueServerWork(40, () -> {
+						TheQuietBetweenModVariables.MapVariables.get(world).joinEvent = 1;
+						TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+						if (world instanceof Level _level) {
+							if (!_level.isClientSide()) {
+								_level.playSound(null, BlockPos.containing(x, y, z), BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1, -1);
+							} else {
+								_level.playLocalSound(x, y, z, BuiltInRegistries.SOUND_EVENT.getValue(ResourceLocation.parse("ambient.cave")), SoundSource.MASTER, 1, -1, false);
 							}
 						}
-					}
-					TheQuietBetweenMod.queueServerWork(5, () -> {
-						if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
-							AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:how_did_you_get_here"));
-							if (_adv != null) {
-								AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-								if (!_ap.isDone()) {
-									for (String criteria : _ap.getRemainingCriteria())
-										_player.getAdvancements().award(_adv, criteria);
-								}
-							}
+						if (world instanceof ServerLevel _level) {
+							_level.getServer().getPlayerList().broadcastSystemMessage(Component.literal(" joined the game").withColor(0xffff00), false);
 						}
-						TheQuietBetweenMod.queueServerWork(5, () -> {
+						TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 1;
+						TheQuietBetweenModVariables.MapVariables.get(world).sprintOrGone = 1;
+						TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+						ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
+						TheQuietBetweenModVariables.MapVariables.get(world).conversationsOpen = 1;
+						TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+						TheQuietBetweenMod.queueServerWork(80, () -> {
 							if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
-								AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:what_are_you_doing_here"));
+								AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:who_are_you"));
 								if (_adv != null) {
 									AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
 									if (!_ap.isDone()) {
@@ -90,37 +108,61 @@ public class JoineventProcedure {
 									}
 								}
 							}
-							TheQuietBetweenMod.queueServerWork(20, () -> {
-								if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
-									AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:who_are_you"));
-									if (_adv != null) {
-										AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-										if (_ap.isDone()) {
-											for (String criteria : _ap.getCompletedCriteria())
-												_player.getAdvancements().revoke(_adv, criteria);
-										}
-									}
-								}
-								if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
-									AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:what_are_you_doing_here"));
-									if (_adv != null) {
-										AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-										if (_ap.isDone()) {
-											for (String criteria : _ap.getCompletedCriteria())
-												_player.getAdvancements().revoke(_adv, criteria);
-										}
-									}
-								}
+							TheQuietBetweenMod.queueServerWork(5, () -> {
 								if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
 									AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:how_did_you_get_here"));
 									if (_adv != null) {
 										AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
-										if (_ap.isDone()) {
-											for (String criteria : _ap.getCompletedCriteria())
-												_player.getAdvancements().revoke(_adv, criteria);
+										if (!_ap.isDone()) {
+											for (String criteria : _ap.getRemainingCriteria())
+												_player.getAdvancements().award(_adv, criteria);
 										}
 									}
 								}
+								TheQuietBetweenMod.queueServerWork(5, () -> {
+									if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+										AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:what_are_you_doing_here"));
+										if (_adv != null) {
+											AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+											if (!_ap.isDone()) {
+												for (String criteria : _ap.getRemainingCriteria())
+													_player.getAdvancements().award(_adv, criteria);
+											}
+										}
+									}
+									TheQuietBetweenMod.queueServerWork(20, () -> {
+										if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+											AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:who_are_you"));
+											if (_adv != null) {
+												AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+												if (_ap.isDone()) {
+													for (String criteria : _ap.getCompletedCriteria())
+														_player.getAdvancements().revoke(_adv, criteria);
+												}
+											}
+										}
+										if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+											AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:what_are_you_doing_here"));
+											if (_adv != null) {
+												AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+												if (_ap.isDone()) {
+													for (String criteria : _ap.getCompletedCriteria())
+														_player.getAdvancements().revoke(_adv, criteria);
+												}
+											}
+										}
+										if (entity instanceof ServerPlayer _player && _player.level() instanceof ServerLevel _level) {
+											AdvancementHolder _adv = _level.getServer().getAdvancements().get(ResourceLocation.parse("the_quiet_between:how_did_you_get_here"));
+											if (_adv != null) {
+												AdvancementProgress _ap = _player.getAdvancements().getOrStartProgress(_adv);
+												if (_ap.isDone()) {
+													for (String criteria : _ap.getCompletedCriteria())
+														_player.getAdvancements().revoke(_adv, criteria);
+												}
+											}
+										}
+									});
+								});
 							});
 						});
 					});

@@ -493,23 +493,58 @@ public class ConversationsProcedure {
 		}
 		if (TheQuietBetweenModVariables.MapVariables.get(world).developerMod) {
 			if ((text).strip().contains("r1")) {
+				if (ShadowStalkerEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerEntityProcedure.execute(world).discard();
+				} else if (ShadowStalkerFlyingEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerFlyingEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerFlyingEntityProcedure.execute(world).discard();
+				}
 				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 1;
 				TheQuietBetweenModVariables.MapVariables.get(world).sprintOrGone = Mth.nextInt(RandomSource.create(), 0, 1);
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
 			} else if ((text).strip().contains("r2")) {
+				if (ShadowStalkerEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerEntityProcedure.execute(world).discard();
+				} else if (ShadowStalkerFlyingEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerFlyingEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerFlyingEntityProcedure.execute(world).discard();
+				}
 				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 2;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
 			} else if ((text).strip().contains("r3")) {
+				if (ShadowStalkerEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerEntityProcedure.execute(world).discard();
+				} else if (ShadowStalkerFlyingEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerFlyingEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerFlyingEntityProcedure.execute(world).discard();
+				}
 				TheQuietBetweenModVariables.MapVariables.get(world).ShadowStalkerBehavior = 3;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
 			} else if ((text).strip().contains("s1")) {
+				if (ShadowStalkerEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerEntityProcedure.execute(world).discard();
+				} else if (ShadowStalkerFlyingEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerFlyingEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerFlyingEntityProcedure.execute(world).discard();
+				}
 				TheQuietBetweenModVariables.MapVariables.get(world).shadowStalkerScripted = 1;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
 			} else if ((text).strip().contains("s2")) {
+				if (ShadowStalkerEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerEntityProcedure.execute(world).discard();
+				} else if (ShadowStalkerFlyingEntityProcedure.execute(world) != null) {
+					if (!ShadowStalkerFlyingEntityProcedure.execute(world).level().isClientSide())
+						ShadowStalkerFlyingEntityProcedure.execute(world).discard();
+				}
 				TheQuietBetweenModVariables.MapVariables.get(world).shadowStalkerScripted = 2;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 				ShadowstalkerspawnProcedure.execute(world, x, y, z, entity);
@@ -560,6 +595,9 @@ public class ConversationsProcedure {
 				}
 			} else if ((text).strip().contains("fss")) {
 				TheQuietBetweenModVariables.MapVariables.get(world).forceSpawnSS = true;
+				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
+			} else if ((text).strip().contains("gui")) {
+				TheQuietBetweenModVariables.MapVariables.get(world).forceGui = true;
 				TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 			}
 		}
