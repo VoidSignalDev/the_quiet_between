@@ -12,11 +12,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.core.BlockPos;
 
-import net.mcreator.thequietbetween.world.inventory.Question3Menu;
-import net.mcreator.thequietbetween.world.inventory.Question2Menu;
-import net.mcreator.thequietbetween.world.inventory.Question1Menu;
-import net.mcreator.thequietbetween.world.inventory.LeaveGuiMenu;
-import net.mcreator.thequietbetween.world.inventory.EyeGuiMenu;
+import net.mcreator.thequietbetween.world.inventory.*;
 import net.mcreator.thequietbetween.network.TheQuietBetweenModVariables;
 import net.mcreator.thequietbetween.TheQuietBetweenMod;
 
@@ -25,9 +21,9 @@ import io.netty.buffer.Unpooled;
 public class GuiProcedure {
 	public static void execute(LevelAccessor world) {
 		double randomizer = 0;
-		randomizer = Mth.nextInt(RandomSource.create(), 1, 75000);
-		if (randomizer == 1 || TheQuietBetweenModVariables.MapVariables.get(world).forceGui == true) {
-			if (TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter == 0) {
+		if (Mth.nextInt(RandomSource.create(), 1, 75000) == 1 || TheQuietBetweenModVariables.MapVariables.get(world).forceGui == true) {
+			randomizer = Mth.nextInt(RandomSource.create(), 1, 5);
+			if (randomizer == 0) {
 				if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ);
 					_ent.openMenu(new MenuProvider() {
@@ -47,7 +43,7 @@ public class GuiProcedure {
 						}
 					}, _bpos);
 				}
-			} else if (TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter == 1) {
+			} else if (randomizer == 1) {
 				if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ);
 					_ent.openMenu(new MenuProvider() {
@@ -67,7 +63,7 @@ public class GuiProcedure {
 						}
 					}, _bpos);
 				}
-			} else if (TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter == 2) {
+			} else if (randomizer == 2) {
 				if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ);
 					_ent.openMenu(new MenuProvider() {
@@ -87,7 +83,7 @@ public class GuiProcedure {
 						}
 					}, _bpos);
 				}
-			} else if (TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter == 3) {
+			} else if (randomizer == 3) {
 				if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ);
 					_ent.openMenu(new MenuProvider() {
@@ -107,7 +103,7 @@ public class GuiProcedure {
 						}
 					}, _bpos);
 				}
-			} else if (TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter == 4) {
+			} else if (randomizer == 4) {
 				if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _ent) {
 					BlockPos _bpos = BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ);
 					_ent.openMenu(new MenuProvider() {
@@ -131,10 +127,31 @@ public class GuiProcedure {
 					if (PlayerEntityProcedure.execute(world) instanceof Player _player)
 						_player.closeContainer();
 				});
+			} else if (randomizer == 5) {
+				if (PlayerEntityProcedure.execute(world) instanceof ServerPlayer _ent) {
+					BlockPos _bpos = BlockPos.containing(TheQuietBetweenModVariables.MapVariables.get(world).playerX, TheQuietBetweenModVariables.MapVariables.get(world).playerY, TheQuietBetweenModVariables.MapVariables.get(world).playerZ);
+					_ent.openMenu(new MenuProvider() {
+						@Override
+						public Component getDisplayName() {
+							return Component.literal("FakeSavingGui");
+						}
+
+						@Override
+						public boolean shouldTriggerClientSideContainerClosingOnOpen() {
+							return false;
+						}
+
+						@Override
+						public AbstractContainerMenu createMenu(int id, Inventory inventory, Player player) {
+							return new FakeSavingGuiMenu(id, inventory, new FriendlyByteBuf(Unpooled.buffer()).writeBlockPos(_bpos));
+						}
+					}, _bpos);
+				}
+				TheQuietBetweenMod.queueServerWork(60, () -> {
+					if (PlayerEntityProcedure.execute(world) instanceof Player _player)
+						_player.closeContainer();
+				});
 			}
-			TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter = TheQuietBetweenModVariables.MapVariables.get(world).guiQuestionsCounter + 1;
-			TheQuietBetweenModVariables.MapVariables.get(world).forceGui = false;
-			TheQuietBetweenModVariables.MapVariables.get(world).markSyncDirty();
 		}
 	}
 }

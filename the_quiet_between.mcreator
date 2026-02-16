@@ -394,24 +394,6 @@
       }
     },
     {
-      "name": "Gui",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "gui",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/thequietbetween/procedures/GuiProcedure.java"
-        ]
-      }
-    },
-    {
       "name": "LeaveGui",
       "type": "gui",
       "compiles": true,
@@ -516,40 +498,6 @@
           "src/main/resources/data/the_quiet_between/worldgen/template_pool/destroyed_house.json",
           "src/main/resources/data/the_quiet_between/worldgen/structure/destroyed_house.json",
           "src/main/resources/data/the_quiet_between/worldgen/structure_set/destroyed_house.json"
-        ]
-      }
-    },
-    {
-      "name": "TeleportHighAndResistance",
-      "type": "procedure",
-      "compiles": true,
-      "locked_code": false,
-      "registry_name": "teleport_high_and_resistance",
-      "metadata": {
-        "dependencies": [
-          {
-            "name": "entity",
-            "type": "entity"
-          },
-          {
-            "name": "x",
-            "type": "number"
-          },
-          {
-            "name": "y",
-            "type": "number"
-          },
-          {
-            "name": "z",
-            "type": "number"
-          },
-          {
-            "name": "world",
-            "type": "world"
-          }
-        ],
-        "files": [
-          "src/main/java/net/mcreator/thequietbetween/procedures/TeleportHighAndResistanceProcedure.java"
         ]
       }
     },
@@ -1022,6 +970,348 @@
           "src/main/resources/data/the_quiet_between/worldgen/structure_set/door_spawn.json"
         ]
       }
+    },
+    {
+      "name": "DoorHallway",
+      "type": "dimension",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "door_hallway",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/dimension/door_hallway.json",
+          "src/main/resources/data/the_quiet_between/dimension_type/door_hallway.json",
+          "src/main/java/net/mcreator/thequietbetween/world/dimension/DoorHallwayDimension.java"
+        ]
+      }
+    },
+    {
+      "name": "DoorHallwayBiome",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "door_hallway_biome",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/biome/door_hallway_biome.json"
+        ]
+      }
+    },
+    {
+      "name": "SpruceDoorTeleporterSpawn",
+      "type": "block",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spruce_door_teleporter_spawn",
+      "metadata": {
+        "files": [
+          "src/main/resources/assets/the_quiet_between/items/spruce_door_teleporter_spawn.json",
+          "src/main/resources/assets/the_quiet_between/models/block/spruce_door_teleporter_spawn_top_right.json",
+          "src/main/java/net/mcreator/thequietbetween/block/SpruceDoorTeleporterSpawnBlock.java",
+          "src/main/resources/data/the_quiet_between/loot_table/blocks/spruce_door_teleporter_spawn.json",
+          "src/main/resources/assets/the_quiet_between/models/block/spruce_door_teleporter_spawn_bottom_left_open.json",
+          "src/main/resources/assets/the_quiet_between/models/block/spruce_door_teleporter_spawn_bottom_left.json",
+          "src/main/resources/assets/the_quiet_between/models/block/spruce_door_teleporter_spawn_top_left.json",
+          "src/main/resources/assets/the_quiet_between/models/block/spruce_door_teleporter_spawn_bottom_right.json",
+          "src/main/resources/assets/the_quiet_between/models/item/spruce_door_teleporter_spawn.json",
+          "src/main/resources/assets/the_quiet_between/blockstates/spruce_door_teleporter_spawn.json",
+          "src/main/resources/assets/the_quiet_between/models/block/spruce_door_teleporter_spawn_top_right_open.json",
+          "src/main/resources/assets/the_quiet_between/models/block/spruce_door_teleporter_spawn_top_left_open.json",
+          "src/main/resources/assets/the_quiet_between/models/block/spruce_door_teleporter_spawn_bottom_right_open.json"
+        ]
+      }
+    },
+    {
+      "name": "WoodLabyrinthBiome",
+      "type": "biome",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "wood_labyrinth_biome",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/biome/wood_labyrinth_biome.json"
+        ]
+      }
+    },
+    {
+      "name": "WoodLabyrinth",
+      "type": "dimension",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "wood_labyrinth",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/world/dimension/WoodLabyrinthDimension.java",
+          "src/main/resources/data/the_quiet_between/dimension/wood_labyrinth.json",
+          "src/main/resources/data/the_quiet_between/dimension_type/wood_labyrinth.json"
+        ]
+      }
+    },
+    {
+      "name": "JoinMessageAndGamerule",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "join_message_and_gamerule",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/JoinMessageAndGameruleProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "RandomGreeting",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "random_greeting",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/RandomGreetingProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "RejoinAfterV0idJoin",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "rejoin_after_v_0id_join",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/RejoinAfterV0idJoinProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "WeirdHouse",
+      "type": "structure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weird_house",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/the_quiet_between/worldgen/structure_set/weird_house.json",
+          "src/main/resources/data/the_quiet_between/worldgen/structure/weird_house.json",
+          "src/main/resources/data/the_quiet_between/worldgen/template_pool/weird_house.json"
+        ]
+      }
+    },
+    {
+      "name": "TeleportToFlatGrass",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "teleport_to_flat_grass",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/TeleportToFlatGrassProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "WeepingAngel",
+      "type": "livingentity",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weeping_angel",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/client/renderer/WeepingAngelRenderer.java",
+          "src/main/java/net/mcreator/thequietbetween/entity/WeepingAngelEntity.java"
+        ]
+      }
+    },
+    {
+      "name": "WeepingAngelTickUpdate",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "weeping_angel_tick_update",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/WeepingAngelTickUpdateProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "MakeEntityLookAtPlayer",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "make_entity_look_at_player",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/MakeEntityLookAtPlayerProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "BiomeSpecificEvents",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "biome_specific_events",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/BiomeSpecificEventsProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "Gui",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "gui",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/GuiProcedure.java"
+        ]
+      }
+    },
+    {
+      "name": "FakeSavingGui",
+      "type": "gui",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "fake_saving_gui",
+      "metadata": {
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/client/gui/FakeSavingGuiScreen.java",
+          "src/main/java/net/mcreator/thequietbetween/world/inventory/FakeSavingGuiMenu.java"
+        ]
+      }
+    },
+    {
+      "name": "SpawnWeepingAngel",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spawn_weeping_angel",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/net/mcreator/thequietbetween/procedures/SpawnWeepingAngelProcedure.java"
+        ]
+      }
     }
   ],
   "variable_elements": [
@@ -1200,12 +1490,6 @@
       "value": "0"
     },
     {
-      "name": "guiQuestionsCounter",
-      "type": "number",
-      "scope": "map",
-      "value": "0"
-    },
-    {
       "name": "time",
       "type": "number",
       "scope": "map",
@@ -1228,6 +1512,18 @@
       "type": "logic",
       "scope": "map",
       "value": "true"
+    },
+    {
+      "name": "disableGreeting",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "V0idJoined",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
     }
   ],
   "sound_elements": [
@@ -1254,16 +1550,42 @@
       ],
       "category": "master",
       "subtitle": ""
+    },
+    {
+      "name": "distant_female_scream",
+      "files": [
+        "femaledistancescream"
+      ],
+      "category": "master",
+      "subtitle": "HELP"
+    },
+    {
+      "name": "cave_whisper",
+      "files": [
+        "ghost-whisper"
+      ],
+      "category": "master",
+      "subtitle": "SGVsbG8gV29ybGQh"
+    },
+    {
+      "name": "whisper_weep",
+      "files": [
+        "fourvoiceswhispering"
+      ],
+      "category": "master",
+      "subtitle": "come over"
     }
   ],
   "tag_elements": {
     "BLOCKS:minecraft:overworld_carver_replaceables": [
+      "~Blocks.BEDROCK",
       "~Blocks.STONE#0",
       "~Blocks.DIRT#0",
       "~Blocks.GRASS",
       "~Blocks.AIR"
     ],
     "BLOCKS:minecraft:wooden_doors": [
+      "~CUSTOM:SpruceDoorTeleporterSpawn",
       "~CUSTOM:DoorTeleporterSpawn"
     ]
   },
@@ -1299,7 +1621,14 @@
       "advancements.who_are_you.descr": "???????",
       "advancements.who_are_you.title": "Who Are You?",
       "subtitles.intro_scare": "",
-      "item.the_quiet_between.door_teleporter_spawn": "Door Teleporter Spawn"
+      "item.the_quiet_between.door_teleporter_spawn": "Door Teleporter Spawn",
+      "biome.the_quiet_between.door_hallway_biome": "Door Hallway Biome",
+      "item.the_quiet_between.spruce_door_teleporter_spawn": "Spruce Door Teleporter Spawn",
+      "biome.the_quiet_between.wood_labyrinth_biome": "Wood Labyrinth Biome",
+      "entity.the_quiet_between.weeping_angel": "Weeping Angles",
+      "subtitles.distant_female_scream": "HELP",
+      "subtitles.cave_whisper": "SGVsbG8gV29ybGQh",
+      "subtitles.whisper_weep": "come over"
     }
   },
   "metadata": {

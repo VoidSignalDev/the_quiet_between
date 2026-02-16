@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "the_quiet_between:door_teleporter_spawn"
+    "the_quiet_between:door_teleporter_spawn",
+    "the_quiet_between:spruce_door_teleporter_spawn"
   ]
 }

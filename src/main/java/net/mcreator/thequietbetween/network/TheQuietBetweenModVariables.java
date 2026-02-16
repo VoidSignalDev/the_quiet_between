@@ -140,11 +140,12 @@ public class TheQuietBetweenModVariables {
 		public double doorX = 0;
 		public double doorY = 0;
 		public double doorZ = 0;
-		public double guiQuestionsCounter = 0;
 		public double time = 0;
 		public double shadowStalkerScripted = 0;
 		public boolean forceGui = false;
 		public boolean despawnShadowStalkerTrigger = true;
+		public boolean disableGreeting = false;
+		public double V0idJoined = 0;
 
 		public static MapVariables load(CompoundTag tag, HolderLookup.Provider lookupProvider) {
 			MapVariables data = new MapVariables();
@@ -182,11 +183,12 @@ public class TheQuietBetweenModVariables {
 			doorX = nbt.getDouble("doorX");
 			doorY = nbt.getDouble("doorY");
 			doorZ = nbt.getDouble("doorZ");
-			guiQuestionsCounter = nbt.getDouble("guiQuestionsCounter");
 			time = nbt.getDouble("time");
 			shadowStalkerScripted = nbt.getDouble("shadowStalkerScripted");
 			forceGui = nbt.getBoolean("forceGui");
 			despawnShadowStalkerTrigger = nbt.getBoolean("despawnShadowStalkerTrigger");
+			disableGreeting = nbt.getBoolean("disableGreeting");
+			V0idJoined = nbt.getDouble("V0idJoined");
 		}
 
 		@Override
@@ -220,11 +222,12 @@ public class TheQuietBetweenModVariables {
 			nbt.putDouble("doorX", doorX);
 			nbt.putDouble("doorY", doorY);
 			nbt.putDouble("doorZ", doorZ);
-			nbt.putDouble("guiQuestionsCounter", guiQuestionsCounter);
 			nbt.putDouble("time", time);
 			nbt.putDouble("shadowStalkerScripted", shadowStalkerScripted);
 			nbt.putBoolean("forceGui", forceGui);
 			nbt.putBoolean("despawnShadowStalkerTrigger", despawnShadowStalkerTrigger);
+			nbt.putBoolean("disableGreeting", disableGreeting);
+			nbt.putDouble("V0idJoined", V0idJoined);
 			return nbt;
 		}
 

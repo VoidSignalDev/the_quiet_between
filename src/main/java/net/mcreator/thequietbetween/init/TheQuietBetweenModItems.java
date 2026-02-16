@@ -23,12 +23,14 @@ public class TheQuietBetweenModItems {
 	public static final DeferredItem<Item> TELEPORTER_HALLWAYS;
 	public static final DeferredItem<Item> V_0ID;
 	public static final DeferredItem<Item> DOOR_TELEPORTER_SPAWN;
+	public static final DeferredItem<Item> SPRUCE_DOOR_TELEPORTER_SPAWN;
 	static {
 		TELEPORTER_SPAWN = block(TheQuietBetweenModBlocks.TELEPORTER_SPAWN);
 		TELEPORTER_WHITE_VOID = block(TheQuietBetweenModBlocks.TELEPORTER_WHITE_VOID);
 		TELEPORTER_HALLWAYS = block(TheQuietBetweenModBlocks.TELEPORTER_HALLWAYS);
 		V_0ID = block(TheQuietBetweenModBlocks.V_0ID);
 		DOOR_TELEPORTER_SPAWN = doubleBlock(TheQuietBetweenModBlocks.DOOR_TELEPORTER_SPAWN);
+		SPRUCE_DOOR_TELEPORTER_SPAWN = doubleBlock(TheQuietBetweenModBlocks.SPRUCE_DOOR_TELEPORTER_SPAWN);
 	}
 
 	// Start of user code block custom items

@@ -28,5 +28,12 @@
   "advancements.who_are_you.descr": "???????",
   "advancements.who_are_you.title": "Who Are You?",
   "subtitles.intro_scare": "",
-  "item.the_quiet_between.door_teleporter_spawn": "Door Teleporter Spawn"
+  "item.the_quiet_between.door_teleporter_spawn": "Door Teleporter Spawn",
+  "biome.the_quiet_between.door_hallway_biome": "Door Hallway Biome",
+  "item.the_quiet_between.spruce_door_teleporter_spawn": "Spruce Door Teleporter Spawn",
+  "biome.the_quiet_between.wood_labyrinth_biome": "Wood Labyrinth Biome",
+  "entity.the_quiet_between.weeping_angel": "Weeping Angles",
+  "subtitles.distant_female_scream": "HELP",
+  "subtitles.cave_whisper": "SGVsbG8gV29ybGQh",
+  "subtitles.whisper_weep": "come over"
 }

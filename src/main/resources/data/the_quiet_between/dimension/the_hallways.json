@@ -4,7 +4,10 @@
     "type": "minecraft:flat",
     "settings": {
       "layers": [
-        { "block": "minecraft:bedrock", "height": 1 }
+        { "block": "minecraft:bedrock", "height": 9 },
+        { "block": "minecraft:oak_planks", "height": 1 },
+        { "block": "minecraft:air", "height": 10 },
+        { "block": "minecraft:bedrock", "height": 120 }
       ],
       "biome": "the_quiet_between:the_hallways_biome"
     }

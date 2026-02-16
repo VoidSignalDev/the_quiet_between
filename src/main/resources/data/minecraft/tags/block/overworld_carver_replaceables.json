@@ -4,6 +4,7 @@
     "minecraft:grass_block",
     "minecraft:dirt",
     "minecraft:stone",
-    "minecraft:air"
+    "minecraft:air",
+    "minecraft:bedrock"
   ]
 }

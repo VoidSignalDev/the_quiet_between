@@ -8,6 +8,7 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.api.distmarker.Dist;
 
+import net.mcreator.thequietbetween.client.renderer.WeepingAngelRenderer;
 import net.mcreator.thequietbetween.client.renderer.ShadowStalkerRenderer;
 import net.mcreator.thequietbetween.client.renderer.ShadowStalkerFlyingRenderer;
 
@@ -17,5 +18,6 @@ public class TheQuietBetweenModEntityRenderers {
 	public static void registerEntityRenderers(EntityRenderersEvent.RegisterRenderers event) {
 		event.registerEntityRenderer(TheQuietBetweenModEntities.SHADOW_STALKER.get(), ShadowStalkerRenderer::new);
 		event.registerEntityRenderer(TheQuietBetweenModEntities.SHADOW_STALKER_FLYING.get(), ShadowStalkerFlyingRenderer::new);
+		event.registerEntityRenderer(TheQuietBetweenModEntities.WEEPING_ANGEL.get(), WeepingAngelRenderer::new);
 	}
 }

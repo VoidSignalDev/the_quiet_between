@@ -24,5 +24,32 @@
         "stream": false
       }
     ]
+  },
+  "distant_female_scream": {
+    "subtitle": "subtitles.distant_female_scream",
+    "sounds": [
+      {
+        "name": "the_quiet_between:femaledistancescream",
+        "stream": false
+      }
+    ]
+  },
+  "cave_whisper": {
+    "subtitle": "subtitles.cave_whisper",
+    "sounds": [
+      {
+        "name": "the_quiet_between:ghost-whisper",
+        "stream": false
+      }
+    ]
+  },
+  "whisper_weep": {
+    "subtitle": "subtitles.whisper_weep",
+    "sounds": [
+      {
+        "name": "the_quiet_between:fourvoiceswhispering",
+        "stream": false
+      }
+    ]
   }
 }

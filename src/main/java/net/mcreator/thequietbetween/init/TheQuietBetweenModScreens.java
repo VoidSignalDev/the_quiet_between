@@ -22,6 +22,7 @@ public class TheQuietBetweenModScreens {
 		event.register(TheQuietBetweenModMenus.TV_STATIC.get(), TvStaticScreen::new);
 		event.register(TheQuietBetweenModMenus.INTRO_JUMPSCARE_GUI.get(), IntroJumpscareGuiScreen::new);
 		event.register(TheQuietBetweenModMenus.BLACK_SCREEN_GUI.get(), BlackScreenGuiScreen::new);
+		event.register(TheQuietBetweenModMenus.FAKE_SAVING_GUI.get(), FakeSavingGuiScreen::new);
 	}
 
 	public interface ScreenAccessor {

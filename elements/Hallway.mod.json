@@ -17,12 +17,12 @@
       }
     ],
     "terrainAdaptation": "none",
-    "generationStep": "RAW_GENERATION",
+    "generationStep": "UNDERGROUND_STRUCTURES",
     "surfaceDetectionType": "WORLD_SURFACE_WG",
-    "useStartHeight": false,
+    "useStartHeight": true,
     "startHeightProviderType": "UNIFORM",
-    "startHeightMin": 0,
-    "startHeightMax": 128,
+    "startHeightMin": -54,
+    "startHeightMax": -53,
     "size": 1,
     "maxDistanceFromCenter": 64,
     "jigsawPools": []

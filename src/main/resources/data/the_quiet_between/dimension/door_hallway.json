@@ -1,0 +1,12 @@
+{
+  "type": "the_quiet_between:door_hallway",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "layers": [
+        { "block": "minecraft:bedrock", "height": 128 }
+      ],
+      "biome": "the_quiet_between:door_hallway_biome"
+    }
+  }
+}

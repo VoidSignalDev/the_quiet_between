@@ -9,8 +9,8 @@
         "value": "Blocks.STRUCTURE_BLOCK"
       }
     ],
-    "spacing": 25,
-    "separation": 15,
+    "spacing": 15,
+    "separation": 10,
     "restrictionBiomes": [
       {
         "value": "CUSTOM:TheHallwaysBiome"
@@ -19,10 +19,10 @@
     "terrainAdaptation": "none",
     "generationStep": "SURFACE_STRUCTURES",
     "surfaceDetectionType": "WORLD_SURFACE_WG",
-    "useStartHeight": false,
+    "useStartHeight": true,
     "startHeightProviderType": "UNIFORM",
-    "startHeightMin": 0,
-    "startHeightMax": 128,
+    "startHeightMin": -54,
+    "startHeightMax": -53,
     "size": 1,
     "maxDistanceFromCenter": 64,
     "jigsawPools": []

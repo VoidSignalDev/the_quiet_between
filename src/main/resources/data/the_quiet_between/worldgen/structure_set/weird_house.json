@@ -1,0 +1,14 @@
+{
+  "structures": [
+    {
+      "structure": "the_quiet_between:weird_house",
+      "weight": 1
+    }
+  ],
+  "placement": {
+    "type": "minecraft:random_spread",
+    "spacing": 15,
+    "separation": 13,
+    "salt": 1995842422
+  }
+}

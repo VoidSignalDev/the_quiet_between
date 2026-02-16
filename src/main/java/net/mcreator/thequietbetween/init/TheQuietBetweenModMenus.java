@@ -31,6 +31,7 @@ public class TheQuietBetweenModMenus {
 	public static final DeferredHolder<MenuType<?>, MenuType<TvStaticMenu>> TV_STATIC = REGISTRY.register("tv_static", () -> IMenuTypeExtension.create(TvStaticMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<IntroJumpscareGuiMenu>> INTRO_JUMPSCARE_GUI = REGISTRY.register("intro_jumpscare_gui", () -> IMenuTypeExtension.create(IntroJumpscareGuiMenu::new));
 	public static final DeferredHolder<MenuType<?>, MenuType<BlackScreenGuiMenu>> BLACK_SCREEN_GUI = REGISTRY.register("black_screen_gui", () -> IMenuTypeExtension.create(BlackScreenGuiMenu::new));
+	public static final DeferredHolder<MenuType<?>, MenuType<FakeSavingGuiMenu>> FAKE_SAVING_GUI = REGISTRY.register("fake_saving_gui", () -> IMenuTypeExtension.create(FakeSavingGuiMenu::new));
 
 	public interface MenuAccessor {
 		Map<String, Object> getMenuState();

@@ -16,7 +16,7 @@ import net.mcreator.thequietbetween.procedures.TeleportToSpawnpointProcedure;
 
 public class DoorTeleporterSpawnBlock extends DoorBlock {
 	public DoorTeleporterSpawnBlock(BlockBehaviour.Properties properties) {
-		super(BlockSetType.OAK, properties.sound(SoundType.WOOD).strength(-1, 3600000));
+		super(BlockSetType.OAK, properties.sound(SoundType.EMPTY).strength(-1, 3600000));
 	}
 
 	@Override
